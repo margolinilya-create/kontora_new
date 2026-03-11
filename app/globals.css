@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS VARIABLES ─── */
+:root {
+  --yellow:  #FFD047;
+  --red:     #FF4848;
+  --blue:    #009FE3;
+  --dark:    #282828;
+  --white:   #FFFFFF;
+  --bg:      #F7F7F5;
+
+  --font-display: 'Nunito', sans-serif;
+  --font-body:    'Onest', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* ─── RESET ─── */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: #F7F7F5;
+  color: #282828;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F7F7F5; }
+::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 3px; }
+
+/* ─── STICKER EFFECT MIXIN (utility classes) ─── */
+@layer components {
+
+  /* Buttons — sticker style */
+  .btn-sticker {
+    @apply inline-flex items-center justify-center gap-2
+           font-display font-extrabold
+           border-[2.5px] border-dark rounded-full
+           transition-all duration-100
+           select-none cursor-pointer;
+    box-shadow: 3px 3px 0 #282828;
+  }
+  .btn-sticker:hover  { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #282828; }
+  .btn-sticker:active { transform: translate(2px, 2px);   box-shadow: 0px 0px 0 #282828; }
+
+  .btn-sticker-lg {
+    @apply btn-sticker text-[17px] px-10 py-[17px];
+    box-shadow: 4px 4px 0 #282828;
+  }
+  .btn-sticker-lg:hover  { box-shadow: 6px 6px 0 #282828; }
+  .btn-sticker-lg:active { transform: translate(3px, 3px); box-shadow: 0 0 0 #282828; }
+
+  .btn-sticker-sm {
+    @apply btn-sticker text-[12px] px-[18px] py-[9px];
+    box-shadow: 2px 2px 0 #282828;
+  }
+  .btn-sticker-sm:hover  { box-shadow: 3px 3px 0 #282828; }
+  .btn-sticker-sm:active { transform: translate(1px, 1px); box-shadow: 0 0 0 #282828; }
+
+  /* Tag — sticker style */
+  .tag-sticker {
+    @apply inline-flex items-center gap-1
+           font-display font-extrabold text-[11px]
+           px-3 py-[5px] rounded-full
+           border-2 border-dark;
+    box-shadow: 2px 2px 0 #282828;
+  }
+
+  /* Card — sticker style */
+  .card-sticker {
+    @apply bg-white border-[2.5px] border-dark rounded-[20px]
+           transition-all duration-150;
+    box-shadow: 4px 4px 0 #282828;
+  }
+  .card-sticker:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #282828;
+  }
+
+  /* Input — sticker style */
+  .input-sticker {
+    @apply w-full bg-white border-2 border-dark rounded-lg
+           px-4 py-3 font-body text-[14px] font-medium text-dark
+           outline-none transition-all duration-100;
+    box-shadow: 2px 2px 0 #282828;
+  }
+  .input-sticker:focus {
+    border-color: #FFD047;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 #282828;
+  }
+  .input-sticker::placeholder { color: #A0A0A0; font-weight: 400; }
+
+  /* Section title accent */
+  .section-eyebrow {
+    @apply font-mono text-[10px] font-semibold tracking-[3px] uppercase text-red mb-2;
+  }
+
+  /* Admin card */
+  .admin-card {
+    @apply bg-white border border-n-100 rounded-lg p-5;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+}
+
+/* ─── TYPOGRAPHY UTILITIES ─── */
+@layer utilities {
+  .font-display  { font-family: var(--font-display); }
+  .font-body     { font-family: var(--font-body); }
+  .font-mono     { font-family: var(--font-mono); }
+
+  .text-display  { font-family: var(--font-display); font-size: 56px; font-weight: 900; line-height: 1.0; letter-spacing: -1px; }
+  .text-h1       { font-family: var(--font-display); font-size: 44px; font-weight: 900; line-height: 1.05; }
+  .text-h2       { font-family: var(--font-display); font-size: 32px; font-weight: 900; line-height: 1.1; }
+  .text-h3       { font-family: var(--font-display); font-size: 22px; font-weight: 800; line-height: 1.2; }
+
+  /* Sticker outline for decorative text */
+  .text-outline {
+    -webkit-text-stroke: 1.5px #282828;
+    color: transparent;
+  }
+}
