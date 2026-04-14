@@ -22,8 +22,8 @@ export const product3dStikerpaki: ProductContent = {
       { id: 'p2', tone: 'yellow', alt: 'Стикерпак 15 стикеров на общем листе' },
       { id: 'p3', tone: 'holo', alt: 'Подарочный набор стикеров с 3D эффектом' },
       { id: 'p4', tone: 'cream', alt: 'Стикерпак с объёмной линзой' },
-      { id: 'p5', tone: 'dark', alt: 'Крупный план 3D стикера, видна смола' },
-      { id: 'p6', tone: 'red', alt: 'Стикерпак для мерча бренда' },
+      { id: 'p5', tone: 'blue', alt: 'Крупный план 3D стикера, видна смола' },
+      { id: 'p6', tone: 'pink', alt: 'Стикерпак для мерча бренда' },
     ],
   },
   infoCards: [

@@ -53,7 +53,7 @@ export function Accordion({ items, className }: AccordionProps) {
               role="region"
               aria-labelledby={`trigger-${item.id}`}
               hidden={!isOpen}
-              className="pb-6 pr-12 text-cream/70"
+              className="pb-6 pr-12 text-cream-soft"
             >
               {item.answer}
             </div>

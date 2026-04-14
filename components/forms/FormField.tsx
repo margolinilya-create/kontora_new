@@ -31,14 +31,14 @@ export function FormField({
     <div className={cn('flex flex-col gap-2', className)} data-described-by={describedBy}>
       <label
         htmlFor={htmlFor}
-        className="font-mono text-xs font-semibold uppercase tracking-widest text-cream/60"
+        className="font-mono text-xs font-semibold uppercase tracking-widest text-cream-muted"
       >
         {label}
         {required ? <span className="ml-1 text-yellow">*</span> : null}
       </label>
       {children}
       {hint && !error ? (
-        <p id={hintId} className="text-xs text-cream/50">
+        <p id={hintId} className="text-xs text-cream-muted">
           {hint}
         </p>
       ) : null}

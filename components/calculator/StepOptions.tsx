@@ -36,7 +36,7 @@ export function StepOptions({
       description="Ламинация защищает от UV и царапин, 3D смола создаёт эффект объёмной линзы, надсечка упрощает снятие со листа."
     >
       <fieldset>
-        <legend className="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-cream/60">
+        <legend className="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-cream-muted">
           Ламинация
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -49,14 +49,14 @@ export function StepOptions({
                 aria-pressed={active}
                 onClick={() => onLamination(o.key)}
                 className={cn(
-                  'flex min-w-[160px] flex-col gap-0.5 rounded-md border-2 border-dark px-4 py-3 text-left transition-[transform,box-shadow] duration-fast ease-out',
+                  'flex min-w-[160px] flex-col gap-0.5 rounded-md  px-4 py-3 text-left transition-[transform,box-shadow] duration-fast ease-out',
                   active
-                    ? 'bg-yellow text-yellow-ink shadow-sticker-lg'
-                    : 'bg-dark-2 text-cream shadow-sticker hover:-translate-y-[2px] hover:shadow-sticker-lg',
+                    ? 'bg-yellow text-yellow-ink shadow-soft-lg'
+                    : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
                 )}
               >
                 <span className="font-display text-sm font-bold uppercase">{o.label}</span>
-                <span className={cn('text-xs', active ? 'opacity-80' : 'text-cream/50')}>
+                <span className={cn('text-xs', active ? 'opacity-80' : 'text-cream-muted')}>
                   {o.hint}
                 </span>
               </button>
@@ -101,23 +101,23 @@ function OptionToggle({
       aria-checked={checked}
       onClick={onChange}
       className={cn(
-        'flex items-center justify-between gap-4 rounded-md border-2 border-dark px-4 py-3 text-left transition-[transform,box-shadow] duration-fast ease-out',
+        'flex items-center justify-between gap-4 rounded-md  px-4 py-3 text-left transition-[transform,box-shadow] duration-fast ease-out',
         checked
-          ? 'bg-violet text-white shadow-sticker-lg'
-          : 'bg-dark-2 text-cream shadow-sticker hover:-translate-y-[2px] hover:shadow-sticker-lg',
+          ? 'bg-violet text-white shadow-soft-lg'
+          : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
       )}
     >
       <span className="flex flex-col gap-0.5">
         <span className="font-display text-sm font-bold uppercase">{label}</span>
-        <span className={cn('text-xs', checked ? 'opacity-80' : 'text-cream/50')}>{hint}</span>
+        <span className={cn('text-xs', checked ? 'opacity-80' : 'text-cream-muted')}>{hint}</span>
       </span>
       <span
         className={cn(
-          'flex h-7 w-12 shrink-0 items-center rounded-full border-2 border-dark transition-colors',
-          checked ? 'justify-end bg-yellow' : 'justify-start bg-dark-3',
+          'flex h-7 w-12 shrink-0 items-center rounded-full  transition-colors',
+          checked ? 'justify-end bg-yellow' : 'justify-start bg-bg-surface-2',
         )}
       >
-        <span className="mx-0.5 h-5 w-5 rounded-full border-2 border-dark bg-dark" />
+        <span className="mx-0.5 h-5 w-5 rounded-full  bg-bg-base" />
       </span>
     </button>
   )

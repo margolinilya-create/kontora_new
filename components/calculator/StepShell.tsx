@@ -30,7 +30,7 @@ export function StepShell({ id, number, title, description, className, children 
             {title}
           </h2>
           {description ? (
-            <p className="mt-2 max-w-xl text-pretty text-sm text-cream/60">{description}</p>
+            <p className="mt-2 max-w-xl text-pretty text-sm text-cream-muted">{description}</p>
           ) : null}
         </div>
       </header>

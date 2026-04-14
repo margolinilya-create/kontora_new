@@ -23,14 +23,14 @@ export function PricePanel({ state, onReset, className }: Props) {
   return (
     <aside
       className={cn(
-        'flex flex-col overflow-hidden rounded-xl border-2 border-dark bg-dark-2 shadow-sticker-lg',
+        'flex flex-col overflow-hidden rounded-xl  bg-bg-surface shadow-soft-lg',
         className,
       )}
     >
-      <header className="flex items-center justify-between border-b border-line bg-dark p-5">
+      <header className="flex items-center justify-between border-b border-line bg-bg-base p-5">
         <div>
           <p className="font-mono text-xs uppercase tracking-widest text-yellow">Предварительно</p>
-          <p className="font-display text-[11px] uppercase tracking-widest text-cream/40">
+          <p className="font-display text-[11px] uppercase tracking-widest text-cream-muted">
             до загрузки макета
           </p>
         </div>
@@ -38,7 +38,7 @@ export function PricePanel({ state, onReset, className }: Props) {
           type="button"
           aria-label="Сбросить калькулятор"
           onClick={onReset}
-          className="flex h-9 w-9 items-center justify-center rounded-md border-2 border-line text-cream/60 transition-colors hover:border-yellow hover:text-yellow"
+          className="flex h-9 w-9 items-center justify-center rounded-md border-2 border-line text-cream-muted transition-colors hover:border-yellow hover:text-yellow"
           title="Сбросить"
         >
           <RotateCcw className="h-4 w-4" strokeWidth={2.5} />
@@ -56,13 +56,13 @@ export function PricePanel({ state, onReset, className }: Props) {
       ) : null}
 
       <div className="space-y-2 p-5">
-        <p className="font-mono text-xs uppercase tracking-widest text-cream/40">Стоимость тиража</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-cream-muted">Стоимость тиража</p>
         <p className="font-display text-[clamp(2rem,6vw,3.5rem)] font-bold leading-none tracking-tighter text-cream">
           {out ? formatPrice(out.price) : '—'}
           <span className="ml-2 text-2xl text-yellow">₽</span>
         </p>
         {out ? (
-          <p className="font-mono text-xs text-cream/50">
+          <p className="font-mono text-xs text-cream-muted">
             {formatPrice(out.unitPrice)} ₽ за штуку · {state.qty} шт
           </p>
         ) : null}
@@ -75,7 +75,7 @@ export function PricePanel({ state, onReset, className }: Props) {
 
       {out && out.breakdown.length > 0 ? (
         <details className="border-b border-line">
-          <summary className="cursor-pointer px-5 py-3 font-mono text-xs uppercase tracking-widest text-cream/60 transition-colors hover:text-yellow">
+          <summary className="cursor-pointer px-5 py-3 font-mono text-xs uppercase tracking-widest text-cream-muted transition-colors hover:text-yellow">
             Расшифровка цены
           </summary>
           <ul className="space-y-1.5 px-5 pb-4 text-xs">
@@ -84,7 +84,7 @@ export function PricePanel({ state, onReset, className }: Props) {
                 key={`${b.label}-${i}`}
                 className={cn(
                   'flex items-center justify-between gap-4',
-                  b.kind === 'discount' ? 'text-yellow' : 'text-cream/70',
+                  b.kind === 'discount' ? 'text-yellow' : 'text-cream-soft',
                 )}
               >
                 <span className="truncate">{b.label}</span>
@@ -100,7 +100,7 @@ export function PricePanel({ state, onReset, className }: Props) {
           Оформить заказ
           <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
         </StickerButton>
-        <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream/40">
+        <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream-muted">
           Это предварительный расчёт — финальную цену подтвердит менеджер
         </p>
       </div>
@@ -110,7 +110,7 @@ export function PricePanel({ state, onReset, className }: Props) {
 
 function Metric({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
-    <div className="flex flex-col gap-1 bg-dark-2 p-4">
+    <div className="flex flex-col gap-1 bg-bg-surface p-4">
       <div className="flex items-center gap-1.5 text-yellow/70">
         {icon}
         <span className="font-mono text-[10px] uppercase tracking-widest">{label}</span>

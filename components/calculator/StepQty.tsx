@@ -37,10 +37,10 @@ export function StepQty({ product, value, onChange }: Props) {
               aria-pressed={active}
               onClick={() => onChange(p)}
               className={cn(
-                'min-w-[88px] rounded-md border-2 border-dark px-4 py-2 font-mono text-sm font-bold tracking-widest transition-[transform,box-shadow] duration-fast ease-out',
+                'min-w-[88px] rounded-md  px-4 py-2 font-mono text-sm font-bold tracking-widest transition-[transform,box-shadow] duration-fast ease-out',
                 active
-                  ? 'bg-violet text-white shadow-sticker-lg'
-                  : 'bg-dark-2 text-cream shadow-sticker hover:-translate-y-[2px] hover:shadow-sticker-lg',
+                  ? 'bg-violet text-white shadow-soft-lg'
+                  : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
               )}
             >
               {p} шт
@@ -52,7 +52,7 @@ export function StepQty({ product, value, onChange }: Props) {
       <div className="mt-8 flex flex-col gap-3">
         <label
           htmlFor="calc-qty"
-          className="font-mono text-xs font-semibold uppercase tracking-widest text-cream/60"
+          className="font-mono text-xs font-semibold uppercase tracking-widest text-cream-muted"
         >
           Свой тираж
         </label>
@@ -65,7 +65,7 @@ export function StepQty({ product, value, onChange }: Props) {
             step={50}
             value={Math.min(10000, Math.max(min, value))}
             onChange={(e) => onChange(Number(e.target.value))}
-            className="h-2 flex-1 cursor-pointer appearance-none rounded-full bg-dark-3 accent-yellow"
+            className="h-2 flex-1 cursor-pointer appearance-none rounded-full bg-bg-surface-2 accent-yellow"
           />
           <input
             type="number"
@@ -74,7 +74,7 @@ export function StepQty({ product, value, onChange }: Props) {
             value={value}
             onChange={(e) => onChange(Number(e.target.value))}
             aria-label="Количество штук"
-            className="h-12 w-32 rounded-md border-2 border-line bg-dark-2 px-4 font-mono text-lg font-bold text-cream focus:border-yellow focus:outline-none"
+            className="h-12 w-32 rounded-md border-2 border-line bg-bg-surface px-4 font-mono text-lg font-bold text-cream focus:border-yellow focus:outline-none"
           />
         </div>
       </div>

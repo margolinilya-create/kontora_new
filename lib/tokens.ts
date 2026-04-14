@@ -1,47 +1,66 @@
 /**
  * TS-зеркало CSS design tokens из `app/globals.css`.
- * Используется в Framer Motion (animate values) и в любом JS, которому
- * нужны цвета / длительности / easing (`lib/seo/og.ts`, `ImageResponse`).
+ * Используется в Framer Motion, OG images, SEO utils.
  *
  * Правило: CSS — источник правды. Этот файл должен совпадать с `globals.css`.
- * Если токен меняется — правим оба файла одновременно. Enforcement через
- * `scripts/check-tokens.ts` (проверяет отсутствие raw hex в компонентах).
+ * Enforcement через `scripts/check-tokens.ts` (запрет raw hex в components/**).
  */
 
 export const colors = {
-  yellow: '#FFD047',
-  yellowInk: '#1A1400',
-  violet: '#7C4DFF',
-  violetInk: '#FFFFFF',
-  red: '#FF4848',
-  blue: '#009FE3',
-  dark: '#0F0F0F',
-  dark2: '#1A1A1A',
-  dark3: '#242424',
-  line: 'rgba(255,255,255,0.08)',
-  white: '#FFFFFF',
-  cream: '#FAFAF7',
+  // surface
+  bgBase: '#0A0A0F',
+  bgSurface: '#12121A',
+  bgSurface2: '#1C1C28',
+  bgSurface3: '#242432',
+  bgCream: '#FAF8F3',
+  bgCream2: '#F4F0E6',
+
+  // text
+  ink: '#0A0A0F',
+  inkSoft: '#4A4A5A',
+  cream: '#FAF8F3',
+
+  // bright accents
+  accentYellow: '#FFD24E',
+  accentYellowInk: '#1A1400',
+  accentPeach: '#FFB88F',
+  accentPeachInk: '#1A0F00',
+  accentPink: '#FF486D',
+  accentPinkInk: '#FFFFFF',
+  accentViolet: '#9736FF',
+  accentVioletInk: '#FFFFFF',
+  accentBlue: '#009FE3',
+  accentBlueSoft: '#B5E9FF',
+  accentRed: '#FF4848',
+  accentYellowSoft: '#FFE28F',
+  accentGreen: '#53FF00',
 } as const
 
 export const radius = {
-  sm: 8,
-  md: 14,
-  lg: 22,
-  xl: 32,
+  xs: 12,
+  sm: 16,
+  md: 24,
+  lg: 32,
+  xl: 40,
+  xxl: 56,
   pill: 9999,
 } as const
 
 export const motion = {
   easeOut: [0.22, 1, 0.36, 1] as const,
+  easeSpring: [0.34, 1.56, 0.64, 1] as const,
   durFast: 0.18,
   dur: 0.32,
   durSlow: 0.52,
+  durAmbient: 0.8,
 } as const
 
 export const shadow = {
-  stickerSm: '4px 4px 0 0 #0F0F0F',
-  sticker: '6px 6px 0 0 #0F0F0F',
-  stickerLg: '10px 10px 0 0 #0F0F0F',
+  ring: '0 0 0 2px rgba(255,255,255,0.08)',
+  ringStrong: '0 0 0 2px rgba(255,255,255,0.18)',
+  softSm: '0 10px 30px -15px rgba(0,0,0,0.35)',
+  soft: '0 20px 50px -25px rgba(0,0,0,0.45)',
+  softLg: '0 30px 80px -30px rgba(0,0,0,0.55)',
 } as const
 
 export type ColorToken = keyof typeof colors

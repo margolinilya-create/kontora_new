@@ -9,7 +9,7 @@ import { StickerButton } from '@/components/brand/StickerButton'
  */
 export function HowToHero() {
   return (
-    <section className="noise-overlay relative overflow-hidden border-b border-line bg-dark">
+    <section className="noise-overlay relative overflow-hidden border-b border-line bg-bg-base">
       <Container size="lg" className="relative z-10 py-20 md:py-28">
         <p className="mb-6 font-mono text-xs uppercase tracking-widest text-yellow">
           {howto.hero.eyebrow}
@@ -17,7 +17,7 @@ export function HowToHero() {
         <h1 className="text-display-xl font-display uppercase leading-[0.95]">
           {howto.hero.title}
         </h1>
-        <p className="mt-6 max-w-2xl text-pretty text-lg text-cream/70 md:text-xl">
+        <p className="mt-6 max-w-2xl text-pretty text-lg text-cream-soft md:text-xl">
           {howto.hero.subtitle}
         </p>
 
@@ -25,7 +25,7 @@ export function HowToHero() {
           {howto.hero.editors.map((editor) => (
             <span
               key={editor}
-              className="inline-flex items-center gap-2 rounded-md border-2 border-dark bg-dark-2 px-3 py-2 shadow-sticker-sm"
+              className="inline-flex items-center gap-2 rounded-md  bg-bg-surface px-3 py-2 shadow-soft-sm"
             >
               <FileType2 className="h-4 w-4 text-yellow" strokeWidth={2.5} />
               <span className="font-mono text-xs font-bold uppercase tracking-widest text-cream">

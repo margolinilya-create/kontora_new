@@ -4,37 +4,42 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 /**
- * Подпись бренда: кнопка с 6px offset-тенью без blur. На hover смещается
- * на -2/-2 и тень растёт до 10px — ощущение, что кнопку «вдавили» как стикер.
+ * Kontora primary CTA. Переработано в M8 под Playful Character Premium:
+ *   • 32px radius (soft rounded, не brutal sharp)
+ *   • ring outline shadow (не offset sticker-shadow)
+ *   • hover — soft floating lift через translateY + glow
+ *   • backdrop blend для glassmorphism в tone-cream
  *
- * Это НЕ декоративная кнопка — это главный CTA-паттерн Конторы. Любой
- * conversion-CTA должен идти через `<StickerButton>`, не через `<Button>`.
+ * Имя компонента оставлено для обратной совместимости (StickerButton),
+ * но семантика теперь — FloatButton.
  */
 export const stickerButtonVariants = cva(
   [
     'relative inline-flex items-center justify-center gap-2',
-    'border-2 border-dark rounded-md',
-    'font-display font-bold uppercase tracking-wider',
-    'shadow-sticker',
-    'transition-[transform,box-shadow] duration-fast ease-out',
-    'hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-sticker-lg',
-    'active:translate-x-0 active:translate-y-0 active:shadow-sticker-sm',
+    'rounded-lg font-display font-semibold uppercase tracking-wide',
+    'shadow-ring',
+    'transition-[transform,box-shadow,background] duration-fast ease-out',
+    'hover:-translate-y-[2px] hover:shadow-soft-lg',
+    'active:translate-y-0 active:shadow-ring',
     'focus-visible:outline-none',
     'disabled:pointer-events-none disabled:opacity-50',
   ],
   {
     variants: {
       tone: {
-        yellow: 'bg-yellow text-yellow-ink',
-        violet: 'bg-violet text-white',
-        cream: 'bg-cream text-dark',
-        dark: 'bg-dark text-cream',
+        yellow: 'bg-yellow text-yellow-ink hover:shadow-glow-yellow',
+        peach: 'bg-peach text-peach-ink hover:shadow-glow-peach',
+        pink: 'bg-pink text-pink-ink hover:shadow-glow-pink',
+        violet: 'bg-violet text-violet-ink hover:shadow-glow-violet',
+        cream: 'bg-bg-cream text-ink hover:shadow-soft-lg',
+        dark: 'bg-bg-surface-2 text-cream shadow-ring-strong',
+        ghost: 'bg-transparent text-cream shadow-ring-strong hover:bg-bg-surface',
       },
       size: {
-        sm: 'h-10 px-4 text-sm',
+        sm: 'h-10 px-5 text-sm',
         md: 'h-12 px-6 text-base',
-        lg: 'h-14 px-8 text-lg',
-        xl: 'h-16 px-10 text-xl',
+        lg: 'h-14 px-8 text-base',
+        xl: 'h-16 px-10 text-lg',
       },
     },
     defaultVariants: { tone: 'yellow', size: 'md' },

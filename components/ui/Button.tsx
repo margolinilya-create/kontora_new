@@ -18,7 +18,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         solid: 'bg-yellow text-yellow-ink hover:bg-yellow/90',
-        ghost: 'bg-transparent text-cream hover:bg-dark-3',
+        ghost: 'bg-transparent text-cream hover:bg-bg-surface-2',
         outline: 'border-2 border-cream/20 bg-transparent text-cream hover:border-yellow hover:text-yellow',
         violet: 'bg-violet text-white hover:bg-violet/90',
         danger: 'bg-red text-white hover:bg-red/90',

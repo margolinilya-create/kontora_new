@@ -8,17 +8,17 @@ import { footerColumns, footerContacts, footerLegal } from '@/lib/content/nav'
  */
 export function Footer() {
   return (
-    <footer className="relative mt-24 border-t-2 border-yellow bg-dark-2 text-cream">
+    <footer className="relative mt-24 border-t-2 border-yellow bg-bg-surface text-cream">
       <div className="noise-overlay relative">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-8 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_2.8fr]">
             <div className="flex flex-col gap-6">
               <BrandLogo size="lg" />
-              <p className="max-w-sm text-pretty text-sm text-cream/60">
+              <p className="max-w-sm text-pretty text-sm text-cream-muted">
                 Мануфактура виниловых изделий. Производим наклейки и стикерпаки — от
                 этикеток и 3D стикеров до широкоформатных наклеек.
               </p>
-              <address className="flex flex-col gap-1 text-sm not-italic text-cream/70">
+              <address className="flex flex-col gap-1 text-sm not-italic text-cream-soft">
                 <span>{footerContacts.city}</span>
                 <span>{footerContacts.address}</span>
               </address>
@@ -35,7 +35,7 @@ export function Footer() {
                       <li key={`${col.title}-${link.href}-${link.label}`}>
                         <Link
                           href={link.href}
-                          className="text-cream/70 transition-colors duration-fast hover:text-yellow"
+                          className="text-cream-soft transition-colors duration-fast hover:text-yellow"
                         >
                           {link.label}
                         </Link>
@@ -48,10 +48,10 @@ export function Footer() {
           </div>
 
           <div className="mt-16 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
-            <p className="font-mono text-xs uppercase tracking-widest text-cream/50">
+            <p className="font-mono text-xs uppercase tracking-widest text-cream-muted">
               {footerContacts.copyright}
             </p>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-cream/50">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-cream-muted">
               {footerLegal.map((link) => (
                 <li key={link.href}>
                   <Link

@@ -25,7 +25,7 @@ export default function OnasPage() {
         )}
       />
 
-      <section className="noise-overlay relative overflow-hidden border-b border-line bg-dark">
+      <section className="noise-overlay relative overflow-hidden border-b border-line bg-bg-base">
         <Container size="lg" className="relative z-10 py-20 md:py-28">
           <p className="mb-6 font-mono text-xs uppercase tracking-widest text-yellow">
             {about.hero.eyebrow}
@@ -33,15 +33,15 @@ export default function OnasPage() {
           <h1 className="text-display-xl font-display uppercase leading-[0.95]">
             {about.hero.title}
           </h1>
-          <p className="mt-8 max-w-2xl text-pretty text-lg text-cream/70 md:text-xl">
+          <p className="mt-8 max-w-2xl text-pretty text-lg text-cream-soft md:text-xl">
             {about.hero.subtitle}
           </p>
         </Container>
       </section>
 
-      <section className="border-b border-line bg-dark-2 py-20 md:py-28">
+      <section className="border-b border-line bg-bg-surface py-20 md:py-28">
         <Container size="md">
-          <div className="space-y-6 text-pretty text-lg leading-relaxed text-cream/80">
+          <div className="space-y-6 text-pretty text-lg leading-relaxed text-cream-soft">
             {about.intro.paragraphs.map((p, i) => (
               <RevealOnScroll key={i} delay={i * 0.05}>
                 <p>{p}</p>
@@ -51,12 +51,12 @@ export default function OnasPage() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-dark py-20">
+      <section className="border-b border-line bg-bg-base py-20">
         <Container size="lg">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {about.stats.map((s, i) => (
               <RevealOnScroll key={s.id} delay={i * 0.05}>
-                <div className="flex flex-col gap-3 rounded-lg border-2 border-dark bg-dark-2 p-6 shadow-sticker">
+                <div className="flex flex-col gap-3 rounded-lg  bg-bg-surface p-6 ">
                   <span className="font-mono text-xs uppercase tracking-widest text-yellow">
                     {s.label}
                   </span>
@@ -70,7 +70,7 @@ export default function OnasPage() {
         </Container>
       </section>
 
-      <section className="bg-dark-2 py-20 md:py-28">
+      <section className="bg-bg-surface py-20 md:py-28">
         <Container size="lg">
           <RevealOnScroll>
             <div className="mb-12 max-w-2xl">
@@ -88,7 +88,6 @@ export default function OnasPage() {
               <RevealOnScroll key={item.id} delay={i * 0.06}>
                 <StickerCard
                   tone={i % 2 === 0 ? 'yellow' : 'cream'}
-                  tilt={i % 2 === 0 ? 'softLeft' : 'softRight'}
                   hover="lift"
                   className="h-full"
                 >

@@ -10,7 +10,7 @@ import { StickerButton } from '@/components/brand/StickerButton'
  */
 export function ProductHero({ content }: { content: ProductContent }) {
   return (
-    <section className="noise-overlay relative overflow-hidden border-b border-line bg-dark">
+    <section className="noise-overlay relative overflow-hidden border-b border-line bg-bg-base">
       <Container size="lg" className="relative z-10 py-20 md:py-28 lg:py-32">
         <p className="mb-6 font-mono text-xs uppercase tracking-widest text-yellow">
           Продукт · {content.label}
@@ -26,7 +26,7 @@ export function ProductHero({ content }: { content: ProductContent }) {
           {content.hero.title}
         </h1>
 
-        <p className="mt-8 max-w-2xl text-pretty text-lg text-cream/70 md:text-xl">
+        <p className="mt-8 max-w-2xl text-pretty text-lg text-cream-soft md:text-xl">
           {content.hero.subtitle}
         </p>
 

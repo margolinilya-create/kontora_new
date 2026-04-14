@@ -4,16 +4,12 @@ import { RevealOnScroll } from '@/components/ui/RevealOnScroll'
 import { MaterialSwatch } from '@/components/brand/MaterialSwatch'
 
 /**
- * Секция «Материалы» — горизонтальный свайп с образцами плёнок.
- * Источник: PDF §1.5 (без текста, только фото). До получения фото
- * используются CSS-образцы через MaterialSwatch.
- *
- * Скролл — нативный horizontal scroll с snap для mobile, 6 образцов
- * в ряд на desktop.
+ * «Материалы» — горизонтальный swipe с образцами плёнок.
+ * Источник: PDF §1.5. M8: soft floating swatches на dark-base.
  */
 export function Materials() {
   return (
-    <section className="border-b border-line bg-dark py-20 md:py-28">
+    <section className="border-b border-line bg-bg-base py-20 md:py-28">
       <Container size="lg">
         <RevealOnScroll>
           <div className="mb-10 flex items-end justify-between gap-6">
@@ -21,11 +17,9 @@ export function Materials() {
               <p className="mb-3 font-mono text-xs uppercase tracking-widest text-yellow">
                 {materials.eyebrow}
               </p>
-              <h2 className="text-display-lg font-display uppercase leading-tight">
-                {materials.title}
-              </h2>
+              <h2 className="text-display-lg font-display">{materials.title}</h2>
             </div>
-            <p className="hidden max-w-sm text-sm text-cream/60 md:block">
+            <p className="hidden max-w-sm text-sm text-cream-muted md:block">
               Только итальянские плёнки премиум-класса. Работаем с прозрачными, матовыми,
               глянцевыми и металлизированными.
             </p>
@@ -33,7 +27,6 @@ export function Materials() {
         </RevealOnScroll>
       </Container>
 
-      {/* edge-to-edge horizontal scroll */}
       <div
         role="region"
         aria-label="Образцы материалов"
@@ -51,7 +44,6 @@ export function Materials() {
               />
             </RevealOnScroll>
           ))}
-          {/* trailing spacer, чтобы последний образец мог полностью уехать */}
           <div className="w-6 shrink-0 md:w-10" aria-hidden="true" />
         </div>
       </div>

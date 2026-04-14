@@ -11,7 +11,7 @@ export const home: HomeContent = {
   hero: {
     eyebrow: 'Мануфактура · Санкт-Петербург',
     titleLines: [
-      [{ kind: 'text', value: 'С НАМИ ' }],
+      [{ kind: 'text', value: 'С НАМИ' }],
       [
         { kind: 'marker', value: 'ВСЁ' },
         { kind: 'text', value: ' ' },
@@ -41,12 +41,14 @@ export const home: HomeContent = {
         title: 'СТИКЕРЫ С КОНТУРНОЙ РЕЗКОЙ',
         description:
           'Любой формы и любого дизайна — вырежем по контуру изображения, получится идеальный стикер.',
+        iconSrc: '/brand/types/fifthtype.png',
       },
       {
         slug: 'pryamougolnye-i-kvadratnye',
         label: '02',
         title: 'ПРЯМОУГОЛЬНЫЕ И КВАДРАТНЫЕ НАКЛЕЙКИ',
         description: 'Идеальны для бутылок, упаковки и маркировки вашей продукции.',
+        iconSrc: '/brand/types/fourthtype.png',
       },
       {
         slug: 'stikery-s-nadsechkoj',
@@ -54,18 +56,21 @@ export const home: HomeContent = {
         title: 'СТИКЕРЫ С НАДСЕЧКОЙ',
         description:
           'Идеальны для мерча и упаковки. Маркетплейсы и оптовые заказы — снимай с листа и клей.',
+        iconSrc: '/brand/types/thirdtype.png',
       },
       {
         slug: 'bolshie-stikery',
         label: '04',
         title: 'БОЛЬШИЕ СТИКЕРЫ',
         description: 'Любые размеры и формы. Для тех, кому нужно занять собой всё пространство.',
+        iconSrc: '/brand/types/secondtype.png',
       },
       {
         slug: '3d-stikerpaki',
         label: '05',
         title: '3D СТИКЕРПАКИ',
         description: 'Стикерпаки с объёмным эффектом или блёском в прозрачную зону.',
+        iconSrc: '/brand/types/firsttype.png',
       },
       {
         slug: 'stikerpaki',
@@ -73,6 +78,7 @@ export const home: HomeContent = {
         title: 'СТИКЕРПАК',
         description:
           'На матовом, глянцевом, прозрачном, голографическом или флуоресцентном материале. С матовой / глянцевой ламинацией.',
+        iconSrc: '/brand/types/fifthtype.png',
       },
     ],
   },

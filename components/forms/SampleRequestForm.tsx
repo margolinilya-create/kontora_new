@@ -21,7 +21,7 @@ export function SampleRequestForm() {
 
   if (state.ok) {
     return (
-      <div className="flex flex-col items-start gap-4 rounded-xl border-2 border-dark bg-yellow p-8 text-yellow-ink shadow-sticker-lg">
+      <div className="flex flex-col items-start gap-4 rounded-xl  bg-yellow p-8 text-yellow-ink shadow-soft-lg">
         <CheckCircle2 className="h-10 w-10" strokeWidth={2.5} />
         <h3 className="text-display-sm font-display uppercase">Образец в пути!</h3>
         <p className="text-sm">

@@ -7,7 +7,7 @@ import { RevealOnScroll } from '@/components/ui/RevealOnScroll'
  */
 export function DocumentSetup() {
   return (
-    <section className="border-b border-line bg-dark-2 py-20">
+    <section className="border-b border-line bg-bg-surface py-20">
       <Container size="md">
         <RevealOnScroll>
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
@@ -17,7 +17,7 @@ export function DocumentSetup() {
                 {howto.documentSetup.title}
               </h2>
             </div>
-            <p className="text-pretty text-lg leading-relaxed text-cream/80">
+            <p className="text-pretty text-lg leading-relaxed text-cream-soft">
               {howto.documentSetup.body}
             </p>
           </div>

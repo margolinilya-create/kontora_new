@@ -53,14 +53,14 @@ export function ConsentBanner() {
     <div
       role="dialog"
       aria-label="Согласие на использование cookies"
-      className="fixed inset-x-4 bottom-4 z-50 rounded-xl border-2 border-dark bg-dark-2 p-5 shadow-sticker-lg md:inset-x-auto md:bottom-6 md:left-6 md:right-6 md:mx-auto md:max-w-2xl md:p-6"
+      className="fixed inset-x-4 bottom-4 z-50 rounded-xl  bg-bg-surface p-5 shadow-soft-lg md:inset-x-auto md:bottom-6 md:left-6 md:right-6 md:mx-auto md:max-w-2xl md:p-6"
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 space-y-2">
           <p className="font-mono text-xs uppercase tracking-widest text-yellow">
             Cookies и 152-ФЗ
           </p>
-          <p className="text-sm text-cream/80">
+          <p className="text-sm text-cream-soft">
             Сайт использует cookies, чтобы запоминать ваши предпочтения и собирать обезличенную
             аналитику. Подробнее — в{' '}
             <Link href="/cookies" className="underline decoration-yellow underline-offset-2 hover:text-yellow">
@@ -77,7 +77,7 @@ export function ConsentBanner() {
           type="button"
           aria-label="Закрыть"
           onClick={() => handle('rejected')}
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border-2 border-line text-cream/60 hover:border-yellow hover:text-yellow"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border-2 border-line text-cream-muted hover:border-yellow hover:text-yellow"
         >
           <X className="h-4 w-4" strokeWidth={2.5} />
         </button>
@@ -87,14 +87,14 @@ export function ConsentBanner() {
         <button
           type="button"
           onClick={() => handle('accepted')}
-          className="flex-1 rounded-md border-2 border-dark bg-yellow px-5 py-2.5 font-display text-sm font-bold uppercase text-yellow-ink shadow-sticker-sm transition-transform duration-fast hover:-translate-y-[1px] hover:shadow-sticker"
+          className="flex-1 rounded-md  bg-yellow px-5 py-2.5 font-display text-sm font-bold uppercase text-yellow-ink shadow-soft-sm transition-transform duration-fast hover:-translate-y-[1px] hover:"
         >
           Принять всё
         </button>
         <button
           type="button"
           onClick={() => handle('rejected')}
-          className="flex-1 rounded-md border-2 border-line bg-transparent px-5 py-2.5 font-display text-sm font-bold uppercase text-cream/80 transition-colors hover:border-cream/40 hover:text-cream"
+          className="flex-1 rounded-md border-2 border-line bg-transparent px-5 py-2.5 font-display text-sm font-bold uppercase text-cream-soft transition-colors hover:border-cream/40 hover:text-cream"
         >
           Только необходимые
         </button>

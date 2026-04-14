@@ -30,16 +30,16 @@ export function StepProduct({ value, onChange }: Props) {
               aria-pressed={active}
               onClick={() => onChange(p.slug)}
               className={cn(
-                'group flex items-start gap-4 rounded-lg border-2 border-dark p-4 text-left transition-[transform,box-shadow,background] duration-fast ease-out focus-visible:-translate-y-[2px]',
+                'group flex items-start gap-4 rounded-lg  p-4 text-left transition-[transform,box-shadow,background] duration-fast ease-out focus-visible:-translate-y-[2px]',
                 active
-                  ? 'bg-yellow text-yellow-ink shadow-sticker-lg'
-                  : 'bg-dark-2 text-cream shadow-sticker hover:-translate-y-[2px] hover:shadow-sticker-lg',
+                  ? 'bg-yellow text-yellow-ink shadow-soft-lg'
+                  : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
               )}
             >
               <span
                 className={cn(
-                  'flex h-10 w-10 shrink-0 items-center justify-center rounded-md border-2 border-dark font-mono text-xs font-bold',
-                  active ? 'bg-dark text-yellow' : 'bg-yellow text-yellow-ink',
+                  'flex h-10 w-10 shrink-0 items-center justify-center rounded-md  font-mono text-xs font-bold',
+                  active ? 'bg-bg-base text-yellow' : 'bg-yellow text-yellow-ink',
                 )}
               >
                 {p.shortLabel.slice(0, 2).toUpperCase()}
@@ -48,7 +48,7 @@ export function StepProduct({ value, onChange }: Props) {
                 <span className="font-display text-sm font-bold uppercase leading-tight md:text-base">
                   {p.shortLabel}
                 </span>
-                <span className={cn('text-xs', active ? 'opacity-80' : 'text-cream/60')}>
+                <span className={cn('text-xs', active ? 'opacity-80' : 'text-cream-muted')}>
                   {p.label}
                 </span>
               </span>

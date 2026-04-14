@@ -1,12 +1,27 @@
-import { Onest, JetBrains_Mono } from 'next/font/google'
-// TODO(M1): import localFont from 'next/font/local' — когда приедет Druk Wide
+import { Unbounded, Nunito, JetBrains_Mono } from 'next/font/google'
 
 /**
- * Body font — Onest (free, Google). Subset ru + en.
- * Используется для абзацев, form-лейблов, описаний.
+ * Display font — Unbounded. Distinctive modern geometric sans с кириллицей.
+ * Playful без детскости, подходит к character-stickers бренда.
+ * Fredoka была бы идеальна по форме, но без cyrillic subset — недоступна.
+ * Unbounded — cyrillic-first display font с сильным характером.
  */
-export const fontBody = Onest({
+export const fontDisplay = Unbounded({
   subsets: ['cyrillic', 'latin'],
+  display: 'swap',
+  variable: '--font-display',
+  adjustFontFallback: true,
+  weight: ['400', '500', '600', '700', '800'],
+  preload: true,
+})
+
+/**
+ * Body font — Nunito. Soft, friendly, высокая читаемость на тёмных фонах.
+ * Парная связка с Fredoka (same rounded personality) подтверждена
+ * ui-ux-pro-max design system query.
+ */
+export const fontBody = Nunito({
+  subsets: ['cyrillic', 'cyrillic-ext', 'latin'],
   display: 'swap',
   variable: '--font-body',
   adjustFontFallback: true,
@@ -15,8 +30,8 @@ export const fontBody = Onest({
 })
 
 /**
- * Mono font — JetBrains Mono. Используется в калькуляторе для цифр
- * (цена, размеры, тираж), чтобы табличные цифры выравнивались.
+ * Mono — JetBrains Mono. Для цифр в калькуляторе, label'ов, tracking-widest
+ * eyebrow текстов. Классика для технического контента.
  */
 export const fontMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -26,36 +41,3 @@ export const fontMono = JetBrains_Mono({
   weight: ['500', '700'],
   preload: false,
 })
-
-/**
- * Display font — Druk Wide (Commercial Type, платный).
- * Файлы `.woff2` приезжают в M1 после покупки владельцем.
- * Пока используется fallback на Onest с компенсацией метрик,
- * чтобы ничего не ломалось до M1.
- *
- * Когда придут файлы — раскомментировать блок ниже и положить:
- *   public/fonts/DrukWide-Medium.woff2
- *   public/fonts/DrukWide-Bold.woff2
- */
-// export const fontDisplay = localFont({
-//   src: [
-//     { path: '../public/fonts/DrukWide-Medium.woff2', weight: '500', style: 'normal' },
-//     { path: '../public/fonts/DrukWide-Bold.woff2', weight: '700', style: 'normal' },
-//   ],
-//   display: 'swap',
-//   variable: '--font-display',
-//   fallback: ['Onest', 'system-ui', 'sans-serif'],
-//   adjustFontFallback: 'Arial',
-// })
-
-/**
- * Заглушка Druk Wide на период M0 — пустой localFont даст переменную
- * `--font-display`, и каскад в globals.css падает в Onest через fallback.
- *
- * TODO(M1): заменить на реальные файлы Druk Wide.
- */
-export const fontDisplay = {
-  variable: '--font-display',
-  className: '',
-  style: { fontFamily: 'var(--font-body)' },
-} as const

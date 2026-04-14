@@ -8,8 +8,8 @@ export const tagVariants = cva(
       tone: {
         yellow: 'bg-yellow text-yellow-ink',
         violet: 'bg-violet text-white',
-        dark: 'bg-dark-3 text-cream/70',
-        outline: 'border border-line text-cream/60',
+        dark: 'bg-bg-surface-2 text-cream-soft',
+        outline: 'border border-line text-cream-muted',
         red: 'bg-red text-white',
       },
     },

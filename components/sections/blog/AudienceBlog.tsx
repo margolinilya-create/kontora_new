@@ -9,7 +9,7 @@ import { StickerCard } from '@/components/brand/StickerCard'
  */
 export function AudienceBlog() {
   return (
-    <section className="border-b border-line bg-dark py-20 md:py-28">
+    <section className="border-b border-line bg-bg-base py-20 md:py-28">
       <Container size="lg">
         <RevealOnScroll>
           <div className="mb-14 max-w-2xl">
@@ -27,7 +27,6 @@ export function AudienceBlog() {
             <RevealOnScroll key={card.id} delay={i * 0.08}>
               <StickerCard
                 tone={card.tone}
-                tilt={card.tilt}
                 hover="lift"
                 className="h-full min-h-[220px]"
               >

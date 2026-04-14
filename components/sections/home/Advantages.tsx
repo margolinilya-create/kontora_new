@@ -9,7 +9,7 @@ import { AdvantageBar } from '@/components/brand/AdvantageBar'
  */
 export function Advantages() {
   return (
-    <section className="bg-dark py-20 md:py-28">
+    <section className="bg-bg-base py-20 md:py-28">
       <Container size="lg">
         <RevealOnScroll>
           <div className="mb-14 max-w-2xl">

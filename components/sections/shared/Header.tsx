@@ -34,7 +34,7 @@ export function Header() {
         className={cn(
           'sticky top-0 z-40 w-full border-b transition-colors duration-fast',
           scrolled
-            ? 'border-line bg-dark/80 backdrop-blur-md'
+            ? 'border-line bg-bg-base/80 backdrop-blur-md'
             : 'border-transparent bg-transparent',
         )}
       >
@@ -55,7 +55,7 @@ export function Header() {
                         href={item.href}
                         className={cn(
                           'relative inline-flex items-center rounded-sm px-3 py-2 font-body text-sm font-semibold transition-colors duration-fast',
-                          isActive ? 'text-yellow-ink' : 'text-cream/80 hover:text-cream',
+                          isActive ? 'text-yellow-ink' : 'text-cream-soft hover:text-cream',
                         )}
                       >
                         {isActive ? (

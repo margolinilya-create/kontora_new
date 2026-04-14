@@ -19,7 +19,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
           ref={ref}
           id={inputId}
           type="checkbox"
-          className="peer absolute inset-0 h-full w-full cursor-pointer appearance-none rounded-sm border-2 border-line bg-dark-2 transition-colors duration-fast ease-out checked:border-yellow checked:bg-yellow hover:border-cream/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
+          className="peer absolute inset-0 h-full w-full cursor-pointer appearance-none rounded-sm border-2 border-line bg-bg-surface transition-colors duration-fast ease-out checked:border-yellow checked:bg-yellow hover:border-cream/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
           {...props}
         />
         <Check
@@ -27,7 +27,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
           strokeWidth={4}
         />
       </span>
-      <span className="text-sm text-cream/70">{label}</span>
+      <span className="text-sm text-cream-soft">{label}</span>
     </label>
   )
 })

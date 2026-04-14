@@ -15,7 +15,7 @@ export function ProductFAQ({ content }: { content: ProductContent }) {
   if (content.faq.length === 0) return null
 
   return (
-    <section className="border-b border-line bg-dark py-20 md:py-28">
+    <section className="border-b border-line bg-bg-base py-20 md:py-28">
       <Container size="md">
         <RevealOnScroll>
           <div className="mb-12 max-w-2xl">

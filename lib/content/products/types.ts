@@ -1,10 +1,10 @@
-import type { CTA } from '@/lib/content/types'
+import type { CTA, StickerTone } from '@/lib/content/types'
 import type { ProductSlug } from '@/lib/routes'
 
 export type GalleryImage = {
   readonly id: string
   /** Временно — CSS-placeholder тон. В M6 заменится на src реального фото. */
-  readonly tone: 'yellow' | 'violet' | 'red' | 'cream' | 'dark' | 'gold' | 'holo'
+  readonly tone: StickerTone | 'gold' | 'holo'
   readonly alt: string
 }
 
@@ -13,7 +13,7 @@ export type InfoCard = {
   readonly title: string
   /** Может быть пустым пока владелец не предоставит финальный текст. */
   readonly body: string
-  readonly tone: 'yellow' | 'violet' | 'red' | 'cream' | 'dark'
+  readonly tone: StickerTone
 }
 
 export type FAQItem = {

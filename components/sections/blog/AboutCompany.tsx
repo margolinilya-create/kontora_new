@@ -9,7 +9,7 @@ import { BrandLogo } from '@/components/brand/BrandLogo'
  */
 export function AboutCompany() {
   return (
-    <section className="border-b border-line bg-dark-2 py-20 md:py-28">
+    <section className="border-b border-line bg-bg-surface py-20 md:py-28">
       <Container size="lg">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <RevealOnScroll>
@@ -18,7 +18,7 @@ export function AboutCompany() {
                 {blog.about.eyebrow}
               </p>
               <BrandLogo size="lg" href="" />
-              <div className="space-y-4 text-pretty text-lg leading-relaxed text-cream/80">
+              <div className="space-y-4 text-pretty text-lg leading-relaxed text-cream-soft">
                 {blog.about.paragraphs.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
@@ -28,17 +28,17 @@ export function AboutCompany() {
 
           <RevealOnScroll delay={0.1}>
             <div className="relative hidden aspect-square w-full max-w-md md:block" aria-hidden="true">
-              <div className="absolute inset-0 -z-10 rounded-xl bg-dark-3" />
-              <div className="absolute left-[12%] top-[10%] flex h-32 w-32 -rotate-6 items-center justify-center rounded-xl border-2 border-dark bg-yellow shadow-sticker-lg md:h-40 md:w-40">
+              <div className="absolute inset-0 -z-10 rounded-xl bg-bg-surface-2" />
+              <div className="absolute left-[12%] top-[10%] flex h-32 w-32 -rotate-6 items-center justify-center rounded-xl  bg-yellow shadow-soft-lg md:h-40 md:w-40">
                 <span className="font-display text-3xl font-bold uppercase text-yellow-ink">К</span>
               </div>
-              <div className="absolute right-[14%] top-[14%] flex h-24 w-24 rotate-6 items-center justify-center rounded-full border-2 border-dark bg-violet text-white shadow-sticker">
+              <div className="absolute right-[14%] top-[14%] flex h-24 w-24 rotate-6 items-center justify-center rounded-full  bg-violet text-white ">
                 <span className="font-mono text-xs uppercase tracking-widest">SPb</span>
               </div>
-              <div className="absolute left-[20%] bottom-[18%] flex h-20 w-56 -rotate-3 items-center justify-center rounded-md border-2 border-dark bg-cream text-dark shadow-sticker">
+              <div className="absolute left-[20%] bottom-[18%] flex h-20 w-56 -rotate-3 items-center justify-center rounded-md  bg-cream text-dark ">
                 <span className="font-display text-sm font-bold uppercase">ИТАЛЬЯНСКИЕ ПЛЁНКИ</span>
               </div>
-              <div className="absolute bottom-[8%] right-[8%] flex h-24 w-24 rotate-[10deg] items-center justify-center rounded-md border-2 border-dark bg-red text-white shadow-sticker">
+              <div className="absolute bottom-[8%] right-[8%] flex h-24 w-24 rotate-[10deg] items-center justify-center rounded-md  bg-red text-white ">
                 <span className="font-mono text-xs uppercase tracking-widest">premium</span>
               </div>
             </div>

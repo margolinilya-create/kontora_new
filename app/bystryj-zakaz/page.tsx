@@ -50,7 +50,7 @@ export default function BystryjZakazPage({
         )}
       />
 
-      <section className="noise-overlay relative border-b border-line bg-dark">
+      <section className="noise-overlay relative border-b border-line bg-bg-base">
         <Container size="lg" className="relative z-10 py-16 md:py-20">
           <p className="mb-4 font-mono text-xs uppercase tracking-widest text-yellow">
             Калькулятор · 60 секунд
@@ -58,14 +58,14 @@ export default function BystryjZakazPage({
           <h1 className="text-display-xl font-display uppercase leading-[0.95]">
             БЫСТРЫЙ ЗАКАЗ
           </h1>
-          <p className="mt-6 max-w-2xl text-pretty text-lg text-cream/70">
+          <p className="mt-6 max-w-2xl text-pretty text-lg text-cream-soft">
             Рассчитаем предварительную стоимость и подберём по срокам производства. Цена
             обновляется мгновенно при изменении параметров.
           </p>
         </Container>
       </section>
 
-      <section className="bg-dark-2 py-16 md:py-20">
+      <section className="bg-bg-surface py-16 md:py-20">
         <Container size="lg">
           <CalculatorRoot initialProduct={initialProduct} />
         </Container>

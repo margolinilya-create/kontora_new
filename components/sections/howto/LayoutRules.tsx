@@ -8,12 +8,12 @@ import { RevealOnScroll } from '@/components/ui/RevealOnScroll'
  */
 export function LayoutRules() {
   return (
-    <section className="border-b border-line bg-dark-2 py-20">
+    <section className="border-b border-line bg-bg-surface py-20">
       <Container size="md">
         <RevealOnScroll>
-          <div className="relative rounded-xl border-2 border-dark bg-yellow p-8 text-yellow-ink shadow-sticker-lg md:p-12">
+          <div className="relative rounded-xl  bg-yellow p-8 text-yellow-ink shadow-soft-lg md:p-12">
             {/* маркер-ярлычок */}
-            <span className="absolute -top-4 left-8 inline-flex items-center gap-2 rounded-md border-2 border-dark bg-dark px-3 py-1 font-mono text-xs font-bold uppercase text-yellow">
+            <span className="absolute -top-4 left-8 inline-flex items-center gap-2 rounded-md  bg-bg-base px-3 py-1 font-mono text-xs font-bold uppercase text-yellow">
               {'<TD'}
             </span>
 
@@ -25,16 +25,16 @@ export function LayoutRules() {
 
             {/* визуальный пример макета */}
             <div className="mt-8 grid gap-4 md:grid-cols-2">
-              <div className="relative aspect-square rounded-md border-2 border-dashed border-dark/50 bg-cream p-4">
+              <div className="relative aspect-square rounded-md border-2 border-dashed border-ink/50 bg-cream p-4">
                 <span className="absolute left-2 top-2 font-mono text-[10px] uppercase tracking-widest text-dark/60">
                   макет
                 </span>
-                <div className="absolute inset-6 rounded-md border-2 border-dark bg-yellow-ink/10" />
+                <div className="absolute inset-6 rounded-md  bg-yellow-ink/10" />
                 <span className="absolute bottom-2 right-2 font-mono text-[10px] uppercase tracking-widest text-dark/60">
                   +3 мм вылет
                 </span>
               </div>
-              <div className="relative aspect-square rounded-md border-2 border-dashed border-dark/50 bg-cream p-4">
+              <div className="relative aspect-square rounded-md border-2 border-dashed border-ink/50 bg-cream p-4">
                 <span className="absolute left-2 top-2 font-mono text-[10px] uppercase tracking-widest text-dark/60">
                   контур резки
                 </span>

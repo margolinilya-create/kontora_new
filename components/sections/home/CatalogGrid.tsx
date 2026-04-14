@@ -5,12 +5,12 @@ import { ProductCard } from '@/components/brand/ProductCard'
 import { productRoute } from '@/lib/routes'
 
 /**
- * Секция «Выбирай, что клеится тебе» — 6 карточек 2×3 на desktop,
- * 1 колонка на mobile. Данные из lib/content/home.ts §1.2 PDF.
+ * «Выбирай, что клеится тебе» — 6 soft-floating карточек с реальными
+ * category PNG из референса (public/brand/types/*). Источник: PDF §1.2.
  */
 export function CatalogGrid() {
   return (
-    <section id="catalog" className="border-b border-line bg-dark-2 py-20 md:py-28">
+    <section id="catalog" className="border-b border-line bg-bg-surface py-20 md:py-28">
       <Container size="lg">
         <RevealOnScroll>
           <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -18,11 +18,9 @@ export function CatalogGrid() {
               <p className="mb-3 font-mono text-xs uppercase tracking-widest text-yellow">
                 {home.catalog.eyebrow}
               </p>
-              <h2 className="text-display-lg font-display uppercase leading-tight">
-                {home.catalog.title}
-              </h2>
+              <h2 className="text-display-lg font-display">{home.catalog.title}</h2>
             </div>
-            <p className="max-w-md text-pretty text-cream/70">{home.catalog.subtitle}</p>
+            <p className="max-w-md text-pretty text-cream-muted">{home.catalog.subtitle}</p>
           </div>
         </RevealOnScroll>
 
@@ -34,6 +32,7 @@ export function CatalogGrid() {
                 label={card.label}
                 title={card.title}
                 description={card.description}
+                iconSrc={card.iconSrc}
               />
             </RevealOnScroll>
           ))}

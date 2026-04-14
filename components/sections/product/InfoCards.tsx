@@ -11,7 +11,7 @@ export function InfoCards({ content }: { content: ProductContent }) {
   const cols = content.infoCards.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
 
   return (
-    <section className="border-b border-line bg-dark-2 py-20 md:py-28">
+    <section className="border-b border-line bg-bg-surface py-20 md:py-28">
       <Container size="lg">
         <RevealOnScroll>
           <div className="mb-10 max-w-2xl">
@@ -29,7 +29,6 @@ export function InfoCards({ content }: { content: ProductContent }) {
             <RevealOnScroll key={card.id} delay={i * 0.06}>
               <StickerCard
                 tone={card.tone}
-                tilt={i % 2 === 0 ? 'softLeft' : 'softRight'}
                 hover="lift"
                 className="h-full min-h-[220px]"
               >

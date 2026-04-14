@@ -29,7 +29,7 @@ export function MaterialSwatch({
   return (
     <article
       className={cn(
-        'group relative flex h-64 w-56 shrink-0 flex-col justify-between rounded-xl border-2 border-dark p-5 shadow-sticker transition-transform duration-fast ease-out hover:-translate-y-1 hover:shadow-sticker-lg',
+        'group relative flex h-64 w-56 shrink-0 flex-col justify-between rounded-xl  p-5  transition-transform duration-fast ease-out hover:-translate-y-1 hover:shadow-soft-lg',
         className,
       )}
       style={style}

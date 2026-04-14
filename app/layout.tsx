@@ -45,7 +45,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={jsonLdScript(websiteJsonLd())}
         />
       </head>
-      <body className="flex min-h-dvh flex-col bg-dark font-body text-cream antialiased">
+      <body className="flex min-h-dvh flex-col bg-bg-base font-body text-cream antialiased">
         <a href="#main" className="skip-link">
           Перейти к контенту
         </a>

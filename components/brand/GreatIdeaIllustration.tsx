@@ -13,13 +13,13 @@ export function GreatIdeaIllustration({ className }: Props) {
   return (
     <div
       className={cn(
-        'relative inline-flex h-40 w-40 items-center justify-center rounded-full border-2 border-dark bg-yellow shadow-sticker-lg md:h-56 md:w-56',
+        'relative inline-flex h-40 w-40 items-center justify-center rounded-full  bg-yellow shadow-soft-lg md:h-56 md:w-56',
         '-rotate-6',
         className,
       )}
       aria-hidden="true"
     >
-      <span className="pointer-events-none absolute -top-4 right-2 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-dark bg-violet text-xs font-bold text-white">
+      <span className="pointer-events-none absolute -top-4 right-2 inline-flex h-8 w-8 items-center justify-center rounded-full  bg-violet text-xs font-bold text-white">
         !
       </span>
       <div className="text-center font-display uppercase text-yellow-ink">

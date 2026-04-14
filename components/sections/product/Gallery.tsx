@@ -12,17 +12,18 @@ import { cn } from '@/lib/utils/cn'
  */
 const toneClassMap: Record<GalleryImage['tone'], string> = {
   yellow: 'bg-yellow',
+  peach: 'bg-peach',
+  pink: 'bg-pink',
   violet: 'bg-violet',
-  red: 'bg-red',
-  cream: 'bg-cream',
-  dark: 'bg-dark-3',
+  blue: 'bg-blue',
+  cream: 'bg-bg-cream',
   gold: 'bg-[var(--material-gold)]',
   holo: 'bg-[var(--material-holo)]',
 }
 
 export function Gallery({ content }: { content: ProductContent }) {
   return (
-    <section className="border-b border-line bg-dark py-20 md:py-28">
+    <section className="border-b border-line bg-bg-base py-20 md:py-28">
       <Container size="lg">
         <RevealOnScroll>
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -34,7 +35,7 @@ export function Gallery({ content }: { content: ProductContent }) {
                 {content.gallery.title}
               </h2>
             </div>
-            <p className="max-w-md text-pretty text-cream/60">{content.gallery.subtitle}</p>
+            <p className="max-w-md text-pretty text-cream-muted">{content.gallery.subtitle}</p>
           </div>
         </RevealOnScroll>
 
@@ -45,13 +46,13 @@ export function Gallery({ content }: { content: ProductContent }) {
                 aria-label={img.alt}
                 role="img"
                 className={cn(
-                  'relative aspect-square overflow-hidden rounded-xl border-2 border-dark shadow-sticker transition-transform duration-fast ease-out hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-sticker-lg',
+                  'relative aspect-square overflow-hidden rounded-xl   transition-transform duration-fast ease-out hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-soft-lg',
                   toneClassMap[img.tone],
                   i % 2 === 0 ? '-rotate-1' : 'rotate-1',
                 )}
               >
                 {/* декоративная «наклейка» с индексом, пока нет фото */}
-                <span className="absolute left-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-dark font-mono text-xs font-bold text-yellow">
+                <span className="absolute left-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-bg-base font-mono text-xs font-bold text-yellow">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="sr-only">{img.alt}</span>

@@ -2,37 +2,37 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 /**
- * База для карточек с «наклеенным» видом: толстая рамка + sticker-shadow +
- * опциональный поворот на несколько градусов. Используется в секциях
- * «Кому подойдут наши наклейки», «Почему выбирают нас», каталоге продукции.
+ * Kontora sticker card — переработано в M8 под Playful Character Premium:
+ *   • 32px radius (было 22-24px)
+ *   • ring + soft drop-shadow (было offset sticker-shadow)
+ *   • hover lift без rotate (было tilt)
+ *   • multi-color tone palette из новой палитры
  */
 export const stickerCardVariants = cva(
   [
-    'relative flex flex-col gap-4 rounded-lg border-2 border-dark p-6',
-    'shadow-sticker transition-transform duration-fast ease-out',
+    'relative flex flex-col gap-4 rounded-lg p-6 md:p-7',
+    'shadow-ring shadow-soft-sm',
+    'transition-[transform,box-shadow] duration-fast ease-out',
   ],
   {
     variants: {
       tone: {
         yellow: 'bg-yellow text-yellow-ink',
-        violet: 'bg-violet text-white',
-        red: 'bg-red text-white',
-        cream: 'bg-cream text-dark',
-        dark: 'bg-dark-2 text-cream',
-      },
-      tilt: {
-        none: '',
-        left: '-rotate-2',
-        right: 'rotate-2',
-        softLeft: '-rotate-1',
-        softRight: 'rotate-1',
+        peach: 'bg-peach text-peach-ink',
+        pink: 'bg-pink text-pink-ink',
+        violet: 'bg-violet text-violet-ink',
+        blue: 'bg-blue text-blue-ink',
+        red: 'bg-red text-red-ink',
+        cream: 'bg-bg-cream text-ink',
+        surface: 'bg-bg-surface text-cream',
+        'surface-2': 'bg-bg-surface-2 text-cream',
       },
       hover: {
         none: '',
-        lift: 'hover:-translate-y-1 hover:rotate-0 hover:shadow-sticker-lg',
+        lift: 'hover:-translate-y-1 hover:shadow-ring-strong hover:shadow-soft-lg',
       },
     },
-    defaultVariants: { tone: 'cream', tilt: 'none', hover: 'none' },
+    defaultVariants: { tone: 'surface', hover: 'none' },
   },
 )
 
@@ -45,12 +45,9 @@ type StickerCardProps = VariantProps<typeof stickerCardVariants> & {
 export function StickerCard({
   as: Tag = 'div',
   tone,
-  tilt,
   hover,
   className,
   children,
 }: StickerCardProps) {
-  return (
-    <Tag className={cn(stickerCardVariants({ tone, tilt, hover }), className)}>{children}</Tag>
-  )
+  return <Tag className={cn(stickerCardVariants({ tone, hover }), className)}>{children}</Tag>
 }

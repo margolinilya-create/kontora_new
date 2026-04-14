@@ -39,10 +39,10 @@ export function StepSize({ width, height, onChange }: Props) {
               aria-pressed={active}
               onClick={() => onChange(p.width, p.height)}
               className={cn(
-                'rounded-md border-2 border-dark px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest transition-[transform,box-shadow] duration-fast ease-out',
+                'rounded-md  px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest transition-[transform,box-shadow] duration-fast ease-out',
                 active
-                  ? 'bg-yellow text-yellow-ink shadow-sticker-lg'
-                  : 'bg-dark-2 text-cream shadow-sticker hover:-translate-y-[2px] hover:shadow-sticker-lg',
+                  ? 'bg-yellow text-yellow-ink shadow-soft-lg'
+                  : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
               )}
             >
               {p.label}
@@ -55,7 +55,7 @@ export function StepSize({ width, height, onChange }: Props) {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="calc-width"
-            className="font-mono text-xs font-semibold uppercase tracking-widest text-cream/60"
+            className="font-mono text-xs font-semibold uppercase tracking-widest text-cream-muted"
           >
             Ширина, мм
           </label>
@@ -67,13 +67,13 @@ export function StepSize({ width, height, onChange }: Props) {
             max={10000}
             value={width}
             onChange={(e) => onChange(Number(e.target.value), height)}
-            className="h-12 rounded-md border-2 border-line bg-dark-2 px-4 font-mono text-lg font-bold text-cream transition-colors hover:border-cream/20 focus:border-yellow focus:outline-none"
+            className="h-12 rounded-md border-2 border-line bg-bg-surface px-4 font-mono text-lg font-bold text-cream transition-colors hover:border-cream/20 focus:border-yellow focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
           <label
             htmlFor="calc-height"
-            className="font-mono text-xs font-semibold uppercase tracking-widest text-cream/60"
+            className="font-mono text-xs font-semibold uppercase tracking-widest text-cream-muted"
           >
             Высота, мм
           </label>
@@ -85,7 +85,7 @@ export function StepSize({ width, height, onChange }: Props) {
             max={10000}
             value={height}
             onChange={(e) => onChange(width, Number(e.target.value))}
-            className="h-12 rounded-md border-2 border-line bg-dark-2 px-4 font-mono text-lg font-bold text-cream transition-colors hover:border-cream/20 focus:border-yellow focus:outline-none"
+            className="h-12 rounded-md border-2 border-line bg-bg-surface px-4 font-mono text-lg font-bold text-cream transition-colors hover:border-cream/20 focus:border-yellow focus:outline-none"
           />
         </div>
       </div>

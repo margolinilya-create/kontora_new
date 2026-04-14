@@ -6,7 +6,7 @@ import { Container } from '@/components/ui/Container'
  */
 export function BlogHero() {
   return (
-    <section className="noise-overlay relative overflow-hidden border-b border-line bg-dark">
+    <section className="noise-overlay relative overflow-hidden border-b border-line bg-bg-base">
       <Container size="lg" className="relative z-10 py-20 md:py-28">
         <p className="mb-6 font-mono text-xs uppercase tracking-widest text-yellow">
           {blog.hero.eyebrow}

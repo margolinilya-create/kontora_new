@@ -1,34 +1,24 @@
 import { cn } from '@/lib/utils/cn'
 
 /**
- * Жёлтый маркер-подсветка слова/фразы в заголовке. Подпись бренда №2.
- * Реализовано как box-decoration-break для корректных переносов на mobile
- * и rotate(-1deg) для «живого» ощущения — как будто прошлись маркером.
+ * Inline highlighter для акцентных слов в display-заголовках.
+ * В M8 переосмыслено: вместо yellow marker используем **гибкие цветовые
+ * акценты** (yellow/peach/pink/violet/blue) — под новую multi-accent палитру.
  */
-type YellowMarkerProps = {
+type MarkerProps = {
   children: React.ReactNode
   className?: string
-  /** skew угол в градусах, по умолчанию -1 (лёгкий) */
-  skew?: 0 | -1 | -2
+  tone?: 'yellow' | 'peach' | 'pink' | 'violet' | 'blue'
 }
 
-const skewMap = {
-  0: 'rotate-0',
-  '-1': '-rotate-1',
-  '-2': '-rotate-2',
+const toneMap = {
+  yellow: 'text-yellow',
+  peach: 'text-peach',
+  pink: 'text-pink',
+  violet: 'text-violet',
+  blue: 'text-blue',
 } as const
 
-export function YellowMarker({ children, className, skew = -1 }: YellowMarkerProps) {
-  return (
-    <span
-      className={cn(
-        'inline-block bg-yellow px-2 text-yellow-ink',
-        'box-decoration-clone',
-        skewMap[skew],
-        className,
-      )}
-    >
-      {children}
-    </span>
-  )
+export function YellowMarker({ children, className, tone = 'yellow' }: MarkerProps) {
+  return <span className={cn('inline font-display', toneMap[tone], className)}>{children}</span>
 }

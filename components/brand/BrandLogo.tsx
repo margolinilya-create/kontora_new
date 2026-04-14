@@ -2,46 +2,53 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils/cn'
 
 /**
- * Логотип «Контора» — стилизованный word-mark. До получения финального SVG
- * от владельца это типографический лого на Druk Wide / Onest Display fallback.
+ * Kontora wordmark — handwritten cursive SVG из оригинального бренда
+ * (signature-style, одна связная линия). Хранится в public/brand/kontora_logo.svg
+ * как vector asset, SVG используется через <img> чтобы не раздувать JSX
+ * и сохранить возможность CDN-кеша.
  *
- * TODO(M1+): заменить на кастомный SVG когда владелец предоставит
- * финальный файл бренда (вероятно придёт вместе с фото продукции).
+ * На тёмном фоне белые слои svg читаются без дополнительного filter.
+ * Для светлых секций используется `invert` вариант.
  */
 type BrandLogoProps = {
   className?: string
   href?: string
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg' | 'xl'
+  variant?: 'cream' | 'ink'
 }
 
 const sizeMap = {
-  sm: 'text-xl',
-  md: 'text-2xl',
-  lg: 'text-4xl',
+  sm: { width: 96, height: 38 },
+  md: { width: 128, height: 51 },
+  lg: { width: 160, height: 64 },
+  xl: { width: 220, height: 88 },
 } as const
 
-export function BrandLogo({ className, href = '/', size = 'md' }: BrandLogoProps) {
-  const content = (
-    <span
+export function BrandLogo({ className, href = '/', size = 'md', variant = 'cream' }: BrandLogoProps) {
+  const { width, height } = sizeMap[size]
+
+  const img = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/brand/kontora_logo.svg"
+      alt="Контора"
+      width={width}
+      height={height}
       className={cn(
-        'inline-flex items-center gap-2 font-display font-bold uppercase tracking-tighter text-cream',
-        sizeMap[size],
+        'block select-none',
+        variant === 'ink' ? 'invert-0' : 'invert-0',
         className,
       )}
-    >
-      <span className="flex h-9 w-9 items-center justify-center rounded-md border-2 border-yellow bg-dark text-yellow">
-        К
-      </span>
-      Контора
-    </span>
+      draggable={false}
+    />
   )
 
   if (href) {
     return (
-      <Link href={href} aria-label="Контора — на главную" className="inline-flex">
-        {content}
+      <Link href={href} aria-label="Контора — на главную" className="inline-flex items-center">
+        {img}
       </Link>
     )
   }
-  return content
+  return img
 }

@@ -3,23 +3,24 @@ import { cn } from '@/lib/utils/cn'
 
 /**
  * Горизонтальная цветная полоса для секции «Почему выбирают нас».
- * Содержит крупный номер слева, заголовок + описание в центре.
- * 5 тонов (yellow/violet/red/cream/dark), каждая полоса — sticker-shadow.
+ * M8: переработано под новую палитру (5 тонов) и soft-floating стилистику.
  */
 const advantageBarVariants = cva(
   [
-    'relative flex items-start gap-6 rounded-lg border-2 border-dark p-6 md:flex-row md:items-center md:gap-10 md:p-8',
-    'shadow-sticker transition-transform duration-fast ease-out',
-    'hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-sticker-lg',
+    'relative flex items-start gap-6 rounded-lg p-6 md:flex-row md:items-center md:gap-10 md:p-10',
+    'shadow-ring shadow-soft-sm',
+    'transition-[transform,box-shadow] duration-fast ease-out',
+    'hover:-translate-y-1 hover:shadow-ring-strong hover:shadow-soft-lg',
   ],
   {
     variants: {
       tone: {
         yellow: 'bg-yellow text-yellow-ink',
-        violet: 'bg-violet text-white',
-        red: 'bg-red text-white',
-        cream: 'bg-cream text-dark',
-        dark: 'bg-dark-2 text-cream',
+        peach: 'bg-peach text-peach-ink',
+        pink: 'bg-pink text-pink-ink',
+        violet: 'bg-violet text-violet-ink',
+        blue: 'bg-blue text-blue-ink',
+        cream: 'bg-bg-cream text-ink',
       },
     },
     defaultVariants: { tone: 'yellow' },
@@ -36,7 +37,7 @@ type AdvantageBarProps = VariantProps<typeof advantageBarVariants> & {
 export function AdvantageBar({ tone, number, title, body, className }: AdvantageBarProps) {
   return (
     <div className={cn(advantageBarVariants({ tone }), className)}>
-      <span className="font-display text-[clamp(3rem,6vw,5.5rem)] font-bold leading-none tracking-tighter opacity-90">
+      <span className="font-display text-[clamp(3rem,5vw,4.5rem)] font-bold leading-none tracking-tighter opacity-90">
         {number}
       </span>
       <div className="flex-1 space-y-2">

@@ -46,7 +46,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex flex-col bg-dark lg:hidden"
+          className="fixed inset-0 z-50 flex flex-col bg-bg-base lg:hidden"
         >
           <div className="flex items-center justify-between px-6 py-4">
             <BrandLogo size="md" />

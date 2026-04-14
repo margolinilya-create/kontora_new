@@ -28,7 +28,7 @@ export function LivePreview({ scene, onSceneChange, width, height, file }: Props
   const safeAspect = Number.isFinite(stickerAspect) && stickerAspect > 0 ? stickerAspect : 1
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl border-2 border-dark bg-dark-2 p-6 shadow-sticker-lg">
+    <div className="flex flex-col gap-4 rounded-xl  bg-bg-surface p-6 shadow-soft-lg">
       <div className="flex items-center justify-between">
         <p className="font-mono text-xs uppercase tracking-widest text-yellow">Превью</p>
         <div className="flex gap-1" role="radiogroup" aria-label="Сцена превью">
@@ -42,8 +42,8 @@ export function LivePreview({ scene, onSceneChange, width, height, file }: Props
                 aria-checked={active}
                 onClick={() => onSceneChange(s.key)}
                 className={cn(
-                  'flex h-9 w-9 items-center justify-center rounded-md border-2 border-dark transition-colors',
-                  active ? 'bg-yellow text-yellow-ink' : 'bg-dark text-cream/60 hover:text-cream',
+                  'flex h-9 w-9 items-center justify-center rounded-md  transition-colors',
+                  active ? 'bg-yellow text-yellow-ink' : 'bg-bg-base text-cream-muted hover:text-cream',
                 )}
                 title={s.label}
               >
@@ -54,11 +54,11 @@ export function LivePreview({ scene, onSceneChange, width, height, file }: Props
         </div>
       </div>
 
-      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md border-2 border-line bg-dark">
+      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md border-2 border-line bg-bg-base">
         <SceneBackdrop scene={scene} />
         <div
           className={cn(
-            'relative z-10 flex items-center justify-center overflow-hidden rounded-sm border-2 border-dark shadow-sticker transition-all duration-300',
+            'relative z-10 flex items-center justify-center overflow-hidden rounded-sm   transition-all duration-300',
             !file && 'bg-cream',
           )}
           style={{
@@ -81,7 +81,7 @@ export function LivePreview({ scene, onSceneChange, width, height, file }: Props
         </div>
       </div>
 
-      <p className="text-center font-mono text-[11px] uppercase tracking-widest text-cream/40">
+      <p className="text-center font-mono text-[11px] uppercase tracking-widest text-cream-muted">
         Живое превью · {width}×{height} мм
       </p>
     </div>
@@ -92,20 +92,20 @@ function SceneBackdrop({ scene }: { scene: PreviewScene }) {
   if (scene === 'laptop') {
     return (
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-[72%] w-[82%] rounded-t-md border-2 border-cream/30 bg-dark-3" />
+        <div className="h-[72%] w-[82%] rounded-t-md border-2 border-cream/30 bg-bg-surface-2" />
       </div>
     )
   }
   if (scene === 'bottle') {
     return (
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-[78%] w-[28%] rounded-[40%_40%_20%_20%] border-2 border-cream/30 bg-dark-3" />
+        <div className="h-[78%] w-[28%] rounded-[40%_40%_20%_20%] border-2 border-cream/30 bg-bg-surface-2" />
       </div>
     )
   }
   return (
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="h-[70%] w-[52%] rotate-2 rounded-sm border-2 border-cream/30 bg-dark-3" />
+      <div className="h-[70%] w-[52%] rotate-2 rounded-sm border-2 border-cream/30 bg-bg-surface-2" />
     </div>
   )
 }

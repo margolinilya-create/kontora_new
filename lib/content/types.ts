@@ -32,6 +32,7 @@ export type HomeContent = {
       readonly label: string
       readonly title: string
       readonly description: string
+      readonly iconSrc?: string
     }[]
   }
   readonly quickOrder: {
@@ -48,12 +49,13 @@ export type HomeContent = {
   }
 }
 
+export type StickerTone = 'yellow' | 'peach' | 'pink' | 'violet' | 'blue' | 'cream'
+
 export type AudienceCard = {
   readonly id: string
   readonly title: string
   readonly body: string
-  readonly tone: 'yellow' | 'violet' | 'red' | 'cream' | 'dark'
-  readonly tilt: 'none' | 'left' | 'right' | 'softLeft' | 'softRight'
+  readonly tone: StickerTone
 }
 
 export type AdvantageItem = {
@@ -61,7 +63,7 @@ export type AdvantageItem = {
   readonly number: string
   readonly title: string
   readonly body: string
-  readonly tone: 'yellow' | 'violet' | 'red' | 'cream' | 'dark'
+  readonly tone: StickerTone
 }
 
 export type MaterialSwatchItem = {

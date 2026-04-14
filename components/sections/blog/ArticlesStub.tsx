@@ -7,17 +7,17 @@ import { RevealOnScroll } from '@/components/ui/RevealOnScroll'
  */
 export function ArticlesStub() {
   return (
-    <section className="bg-dark-2 py-20 md:py-28">
+    <section className="bg-bg-surface py-20 md:py-28">
       <Container size="md">
         <RevealOnScroll>
-          <div className="rounded-xl border-2 border-dashed border-line bg-dark p-10 text-center">
+          <div className="rounded-xl border-2 border-dashed border-line bg-bg-base p-10 text-center">
             <p className="font-mono text-xs uppercase tracking-widest text-yellow">
               {blog.articlesStub.eyebrow}
             </p>
             <h2 className="mt-3 text-display-md font-display uppercase leading-tight">
               {blog.articlesStub.title}
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-pretty text-cream/60">
+            <p className="mx-auto mt-4 max-w-xl text-pretty text-cream-muted">
               {blog.articlesStub.body}
             </p>
           </div>

@@ -7,7 +7,7 @@ import { RevealOnScroll } from '@/components/ui/RevealOnScroll'
  */
 export function Requirements() {
   return (
-    <section className="border-b border-line bg-dark py-20">
+    <section className="border-b border-line bg-bg-base py-20">
       <Container size="md">
         <RevealOnScroll>
           <p className="font-mono text-xs uppercase tracking-widest text-yellow">Шаг 2</p>
@@ -19,11 +19,11 @@ export function Requirements() {
         <ul className="mt-10 space-y-4">
           {howto.requirements.bullets?.map((bullet, i) => (
             <RevealOnScroll key={bullet.id} delay={i * 0.06}>
-              <li className="flex items-start gap-4 rounded-lg border-2 border-dark bg-dark-2 p-5 shadow-sticker">
+              <li className="flex items-start gap-4 rounded-lg  bg-bg-surface p-5 ">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-yellow font-mono text-xs font-bold text-yellow-ink">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <p className="text-pretty text-base leading-relaxed text-cream/80">{bullet.text}</p>
+                <p className="text-pretty text-base leading-relaxed text-cream-soft">{bullet.text}</p>
               </li>
             </RevealOnScroll>
           ))}
