@@ -19,6 +19,11 @@
     --color-line: rgba(255, 255, 255, 0.08);
     --color-cream: #fafaf7;
 
+    /* material samples (физические цвета плёнок) */
+    --material-gold: #c9a24b;
+    --material-silver: #c9c9cf;
+    --material-holo: linear-gradient(135deg, #ff9ae0 0%, #9ad5ff 50%, #ffe54d 100%);
+
     /* sticker shadows (sharp, no blur — это подпись бренда) */
     --shadow-sticker-sm: 4px 4px 0 0 var(--color-dark);
     --shadow-sticker-md: 6px 6px 0 0 var(--color-dark);
