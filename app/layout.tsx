@@ -8,6 +8,8 @@ import {
   jsonLdScript,
 } from '@/lib/seo/jsonld'
 import { siteLang } from '@/lib/routes'
+import { Header } from '@/components/sections/shared/Header'
+import { Footer } from '@/components/sections/shared/Footer'
 import './globals.css'
 
 export const metadata: Metadata = rootMetadata
@@ -41,11 +43,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={jsonLdScript(websiteJsonLd())}
         />
       </head>
-      <body className="min-h-dvh bg-dark font-body text-cream antialiased">
+      <body className="flex min-h-dvh flex-col bg-dark font-body text-cream antialiased">
         <a href="#main" className="skip-link">
           Перейти к контенту
         </a>
-        <div id="main">{children}</div>
+        <Header />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )
