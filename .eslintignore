@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+public
+content-source
+next-env.d.ts
+scripts
+tests
