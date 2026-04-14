@@ -73,6 +73,7 @@ export function StepQty({ product, value, onChange }: Props) {
             min={min}
             value={value}
             onChange={(e) => onChange(Number(e.target.value))}
+            aria-label="Количество штук"
             className="h-12 w-32 rounded-md border-2 border-line bg-dark-2 px-4 font-mono text-lg font-bold text-cream focus:border-yellow focus:outline-none"
           />
         </div>

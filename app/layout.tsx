@@ -11,6 +11,7 @@ import { siteLang } from '@/lib/routes'
 import { Header } from '@/components/sections/shared/Header'
 import { Footer } from '@/components/sections/shared/Footer'
 import { ConsentBanner } from '@/components/providers/ConsentBanner'
+import { AnalyticsProvider } from '@/components/providers/AnalyticsProvider'
 import './globals.css'
 
 export const metadata: Metadata = rootMetadata
@@ -54,6 +55,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <ConsentBanner />
+        <AnalyticsProvider />
       </body>
     </html>
   )

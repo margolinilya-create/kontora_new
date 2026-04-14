@@ -34,7 +34,12 @@ export function Materials() {
       </Container>
 
       {/* edge-to-edge horizontal scroll */}
-      <div className="mt-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div
+        role="region"
+        aria-label="Образцы материалов"
+        tabIndex={0}
+        className="mt-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
         <div className="flex gap-6 px-6 md:px-10 lg:px-12">
           {materials.items.map((item, i) => (
             <RevealOnScroll key={item.id} delay={i * 0.04} className="snap-start">

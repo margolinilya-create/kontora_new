@@ -56,7 +56,8 @@
         "app/layout.tsx",
         "app/manifest.ts",
         "lib/tokens.ts",
-        "lib/email/templates/**/*"
+        "lib/email/templates/**/*",
+        "lib/seo/og.tsx"
       ],
       "rules": {
         "no-restricted-syntax": "off"

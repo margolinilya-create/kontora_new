@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 
@@ -10,7 +10,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
   { className, label, id, ...props },
   ref,
 ) {
-  const inputId = id ?? `chk-${Math.random().toString(36).slice(2, 8)}`
+  const generatedId = useId()
+  const inputId = id ?? generatedId
   return (
     <label htmlFor={inputId} className={cn('group flex cursor-pointer items-start gap-3', className)}>
       <span className="relative mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center">

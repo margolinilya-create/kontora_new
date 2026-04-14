@@ -3,17 +3,15 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { X } from 'lucide-react'
+import { dispatchConsentAccepted } from './AnalyticsProvider'
 
 /**
  * 152-ФЗ / Cookies consent banner. Появляется один раз на сессию,
  * хранит выбор в cookie `kontora_consent` (1 год).
  *
- * Варианты:
- * - «Принять всё» — разрешает аналитику + функциональные cookies
- * - «Только необходимые» — отказ от аналитики, только функциональные
- *
- * M5: только UI и cookie state. M6: подключает Yandex.Metrica/PostHog
- * при `accepted === true`.
+ * При «Принять всё» триггерит глобальный event, который подхватывает
+ * AnalyticsProvider и подгружает Yandex.Metrica + PostHog скрипты
+ * без перезагрузки страницы.
  */
 type ConsentChoice = 'accepted' | 'rejected'
 const COOKIE_NAME = 'kontora_consent'
@@ -46,7 +44,9 @@ export function ConsentBanner() {
   function handle(choice: ConsentChoice) {
     writeCookie(choice)
     setVisible(false)
-    // M6: если choice === 'accepted' → инициализировать Yandex.Metrica/PostHog
+    if (choice === 'accepted') {
+      dispatchConsentAccepted()
+    }
   }
 
   return (
