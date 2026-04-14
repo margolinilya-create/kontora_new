@@ -11,6 +11,8 @@ import { readdir } from 'node:fs/promises'
 import { join, extname } from 'node:path'
 
 const HEX_RE = /#(?:[0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})\b/gi
+// lib/email/templates/** намеренно использует inline hex — почтовые
+// клиенты не поддерживают CSS vars.
 const ROOTS = ['components', 'app']
 const EXTS = new Set(['.ts', '.tsx'])
 const ALLOWLIST = new Set<string>([

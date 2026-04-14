@@ -55,7 +55,8 @@
         "app/**/opengraph-image.tsx",
         "app/layout.tsx",
         "app/manifest.ts",
-        "lib/tokens.ts"
+        "lib/tokens.ts",
+        "lib/email/templates/**/*"
       ],
       "rules": {
         "no-restricted-syntax": "off"

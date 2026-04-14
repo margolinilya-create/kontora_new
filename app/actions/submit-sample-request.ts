@@ -1,12 +1,12 @@
 'use server'
 
 import { sampleRequestSchema } from '@/lib/forms/schemas'
+import { sendSampleRequestEmail } from '@/lib/email/send'
 import type { FormState } from './submit-manager-request'
 
 /**
  * Server Action: заявка на образец (анкета PDF §2.8).
- * M3 — mock: валидация через Zod, логирование, success.
- * M5 — реальная отправка через Resend + Telegram.
+ * Валидация Zod → отправка через Resend (graceful fallback без RESEND_API_KEY).
  */
 export async function submitSampleRequest(
   _prev: FormState,
@@ -32,14 +32,19 @@ export async function submitSampleRequest(
     return { ok: false, fieldErrors, error: 'Проверьте заполнение полей' }
   }
 
-  // TODO(M5): resend + telegram
-  console.info('[kontora] sample request (mock)', {
+  const result = await sendSampleRequestEmail({
     name: parsed.data.name,
     email: parsed.data.email,
     phone: parsed.data.phone,
     comment: parsed.data.comment,
-    receivedAt: new Date().toISOString(),
   })
+
+  if (!result.ok) {
+    return {
+      ok: false,
+      error: 'Не удалось отправить заявку. Попробуйте позже или напишите на hello@kontora.su.',
+    }
+  }
 
   return { ok: true }
 }

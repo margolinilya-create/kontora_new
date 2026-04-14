@@ -1,12 +1,15 @@
 'use server'
 
 import { managerRequestSchema } from '@/lib/forms/schemas'
+import { sendManagerRequestEmail } from '@/lib/email/send'
+import { products } from '@/lib/products'
 
 /**
  * Server Action: приём заявки от менеджерской формы.
  *
- * M2 — mock: валидирует через Zod, логирует, возвращает success.
- * M5 — реальная отправка: Resend (email) + Telegram Bot API (дубль в чат).
+ * Валидация Zod → отправка через Resend (если настроен RESEND_API_KEY).
+ * Если ключ не задан — graceful fallback в console.warn, форма всё равно
+ * показывает success state (чтобы не ломать UX до настройки owner'ом).
  *
  * Возвращаемый тип совместим с формой — field errors + root error + ok.
  */
@@ -41,14 +44,22 @@ export async function submitManagerRequest(
     return { ok: false, fieldErrors, error: 'Проверьте заполнение полей' }
   }
 
-  // TODO(M5): resend.emails.send + telegram.notify
-  console.info('[kontora] manager request (mock)', {
+  const productLabel =
+    products.find((p) => p.slug === parsed.data.product)?.label ?? parsed.data.product
+
+  const result = await sendManagerRequestEmail({
     name: parsed.data.name,
     email: parsed.data.email,
     phone: parsed.data.phone,
-    product: parsed.data.product,
-    receivedAt: new Date().toISOString(),
+    product: productLabel,
   })
+
+  if (!result.ok) {
+    return {
+      ok: false,
+      error: 'Не удалось отправить заявку. Попробуйте позже или напишите на hello@kontora.su.',
+    }
+  }
 
   return { ok: true }
 }
