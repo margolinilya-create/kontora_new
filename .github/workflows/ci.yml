@@ -38,6 +38,9 @@ jobs:
       - name: Check copy drift
         run: npm run check:copy
 
+      - name: Unit tests (Vitest)
+        run: npm run test:unit
+
       - name: Next build
         run: npm run build
         env:
