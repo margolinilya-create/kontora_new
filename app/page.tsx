@@ -4,8 +4,7 @@ import { routes } from '@/lib/routes'
 import { breadcrumbListJsonLd, jsonLdScript } from '@/lib/seo/jsonld'
 import { Hero } from '@/components/sections/home/Hero'
 import { CatalogGrid } from '@/components/sections/home/CatalogGrid'
-import { QuickOrderEmbed } from '@/components/sections/home/QuickOrderEmbed'
-import { ManagerRequest } from '@/components/sections/home/ManagerRequest'
+import { QuickOrderWidget } from '@/components/sections/home/QuickOrderWidget'
 import { Materials } from '@/components/sections/home/Materials'
 import { Audience } from '@/components/sections/home/Audience'
 import { Advantages } from '@/components/sections/home/Advantages'
@@ -16,14 +15,16 @@ export const dynamic = 'force-static'
 export const revalidate = false
 
 /**
- * Главная страница. Структура строго из PDF «Контора нью» §1:
- *   1.1 Hero
- *   1.2 Каталог продукции
- *   1.3 Быстрый заказ (калькулятор embed shell)
- *   1.4 Запрос для менеджера
- *   1.5 Материалы
- *   1.6 Кому подойдут наши наклейки
- *   1.7 Почему выбирают нас
+ * Главная. Порядок секций сверен с kontora.futuguru.com (M9 reference):
+ *   1. Hero (centered + 3D traffic light)
+ *   2. CatalogGrid (7 категорий)
+ *   3. QuickOrderWidget (inline калькулятор, #order якорь)
+ *   4. Materials (swatches)
+ *   5. Audience (4 карточки)
+ *   6. Advantages (5 преимуществ)
+ *
+ * ManagerRequest убрана — на референсе отдельной формы нет, её функцию
+ * выполняет встроенный калькулятор (#order) + CTA «Оформить заказ».
  */
 export default function HomePage() {
   return (
@@ -36,8 +37,7 @@ export default function HomePage() {
       />
       <Hero />
       <CatalogGrid />
-      <QuickOrderEmbed />
-      <ManagerRequest />
+      <QuickOrderWidget />
       <Materials />
       <Audience />
       <Advantages />
