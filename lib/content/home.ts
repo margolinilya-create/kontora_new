@@ -1,21 +1,21 @@
 import type { HomeContent } from './types'
 
 /**
- * Главная. Источник — PDF «Контора нью» §1 (Hero, Каталог, Быстрый заказ,
- * Запрос менеджера, Материалы, Кому подойдут, Почему выбирают).
+ * Главная. Источник — reference site kontora.futuguru.com
+ * (/tmp/ref-audit/home.html, раздел paragraphs/headings).
  *
- * Примечание из PDF: слово «виниловые» выделено жёлтым маркером,
- * «широкоформатных» — подчёркиванием.
+ * Hero: центрированный layout, SVG-заголовок «С НАМИ ВСЕ КЛЕИТСЯ!»
+ * (group-39552-1.svg), подзаголовок «Производим виниловые наклейки...»,
+ * CTA «БЫСТРЫЙ ЗАКАЗ» с якорем на калькулятор.
+ *
+ * Catalog: 7 категорий — тексты из реального footer раздела home.
  */
 export const home: HomeContent = {
   hero: {
     eyebrow: 'Мануфактура · Санкт-Петербург',
     titleLines: [
       [{ kind: 'text', value: 'С НАМИ' }],
-      [
-        { kind: 'marker', value: 'ВСЁ' },
-        { kind: 'text', value: ' ' },
-      ],
+      [{ kind: 'text', value: 'ВСЁ' }],
       [{ kind: 'text', value: 'КЛЕИТСЯ!' }],
     ],
     subtitle: [
@@ -25,12 +25,12 @@ export const home: HomeContent = {
       { kind: 'underline', value: 'широкоформатных' },
       { kind: 'text', value: ' наклеек.' },
     ],
-    primaryCta: { label: 'Рассчитать стоимость', href: '/bystryj-zakaz' },
+    primaryCta: { label: 'Быстрый заказ', href: '/#order' },
     secondaryCta: { label: 'Каталог продукции', href: '#catalog' },
   },
 
   catalog: {
-    eyebrow: '6 категорий',
+    eyebrow: '7 категорий',
     title: 'ВЫБИРАЙ, ЧТО КЛЕИТСЯ ТЕБЕ',
     subtitle:
       'Формы, размеры, текстуры — у нас есть стикер на любой случай. От блеска 3D до дерзости винила.',
@@ -40,44 +40,53 @@ export const home: HomeContent = {
         label: '01',
         title: 'СТИКЕРЫ С КОНТУРНОЙ РЕЗКОЙ',
         description:
-          'Любой формы и любого дизайна — вырежем по контуру изображения, получится идеальный стикер.',
+          'Любая форма, точная резка по контуру изображения, получите поштучно нарезанный тираж',
         iconSrc: '/brand/types/fifthtype.png',
       },
       {
         slug: 'pryamougolnye-i-kvadratnye',
         label: '02',
         title: 'ПРЯМОУГОЛЬНЫЕ И КВАДРАТНЫЕ НАКЛЕЙКИ',
-        description: 'Идеальны для бутылок, упаковки и маркировки вашей продукции.',
+        description: 'Идеальны для этикеток и маркировки вашей продукции',
         iconSrc: '/brand/types/fourthtype.png',
       },
       {
         slug: 'stikery-s-nadsechkoj',
         label: '03',
         title: 'СТИКЕРЫ С НАДСЕЧКОЙ',
-        description:
-          'Идеальны для мерча и упаковки. Маркетплейсы и оптовые заказы — снимай с листа и клей.',
+        description: 'Удобны для массового использования и упаковки',
         iconSrc: '/brand/types/thirdtype.png',
       },
       {
         slug: 'bolshie-stikery',
         label: '04',
         title: 'БОЛЬШИЕ СТИКЕРЫ',
-        description: 'Любые размеры и формы. Для тех, кому нужно занять собой всё пространство.',
+        description:
+          'Любого размеры и формы. На всю стену или окно. Напечатаем и оклеим. Для тех кто хочет заявить о себе без мегафона',
         iconSrc: '/brand/types/secondtype.png',
       },
       {
         slug: '3d-stikerpaki',
         label: '05',
         title: '3D СТИКЕРПАКИ',
-        description: 'Стикерпаки с объёмным эффектом или блёском в прозрачную зону.',
+        description:
+          'Стикерпак с объемными стикерами. Идеальны для подарка или товара в прикассовую зону',
+        iconSrc: '/brand/types/firsttype.png',
+      },
+      {
+        slug: '3d-stikery',
+        label: '06',
+        title: '3D СТИКЕРЫ - ХИТ',
+        description:
+          'Они же объемные, купольные со смолой. Любой формы и размеров. Поштучно или на листе',
         iconSrc: '/brand/types/firsttype.png',
       },
       {
         slug: 'stikerpaki',
-        label: '06',
+        label: '07',
         title: 'СТИКЕРПАК',
         description:
-          'На матовом, глянцевом, прозрачном, голографическом или флуоресцентном материале. С матовой / глянцевой ламинацией.',
+          'Наборы наклеек на подложке. На матовой, глянцевой, прозрачной, хромированной (золото, серебро, голография) плёнке. С матовой / глянцевой ламинацией',
         iconSrc: '/brand/types/fifthtype.png',
       },
     ],
@@ -86,14 +95,16 @@ export const home: HomeContent = {
   quickOrder: {
     eyebrow: 'Калькулятор · 60 секунд',
     title: 'БЫСТРЫЙ ЗАКАЗ',
-    subtitle: 'Рассчитаем предварительную стоимость и подберём по срокам производства.',
-    cta: { label: 'Открыть калькулятор', href: '/bystryj-zakaz' },
+    subtitle:
+      'Рассчитаем предварительную стоимость и подскажем по срокам производства',
+    cta: { label: 'Рассчитать стоимость', href: '#order' },
   },
 
   managerRequest: {
     eyebrow: 'Для крупных тиражей',
     title: 'ЗАПРОС ДЛЯ МЕНЕДЖЕРА',
-    subtitle: 'Заполните анкету, чтобы наш менеджер связался с вами для уточнения деталей заказа.',
+    subtitle:
+      'Заполните анкету, чтобы наш менеджер связался с вами для уточнения деталей заказа.',
     productOptions: [
       { value: 'stikery-s-konturnoj-rezkoj', label: 'Стикеры с контурной резкой' },
       { value: '3d-stikerpaki', label: '3D стикерпаки' },

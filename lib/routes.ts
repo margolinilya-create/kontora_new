@@ -93,7 +93,7 @@ export const routes = {
   kontakty: {
     path: '/kontakty',
     title: 'Контакты',
-    description: 'Санкт-Петербург, ул. Набережная канала Грибоедова, 126. Телефоны и почта «Конторы».',
+    description: 'Санкт-Петербург, наб. Обводного канала, 24д. Телефон, почта и мессенджеры «Конторы».',
     navGroup: 'header',
     navLabel: 'Контакты',
     priority: 0.5,

@@ -1,16 +1,17 @@
 /**
- * Структура header/footer навигации. Источник — PDF «Контора нью» §Общие элементы.
- * Пункты меню: продукция • стикеры • наклейки • как подготовить макет •
- * заказать дизайн • о нас • контакты. Кнопка хедера: БЫСТРЫЙ ЗАКАЗ.
+ * Структура header/footer навигации. Источник — reference site
+ * kontora.futuguru.com (M9 audit, /tmp/ref-audit/home.html).
  *
- * Футер: 3 колонки ссылок + контакты.
- *   Колонка 1 — ПРОДУКЦИЯ: 3D Стикеры • 3D Стикерпаки • Стикерпаки •
- *                          Смена частиц • Стикеры с контурной резкой
- *   Колонка 2 — НАКЛЕЙКИ:  Прямоугольные • Рулонные • Большие
- *   Колонка 3 — МАТЕРИАЛЫ: Прозрачная • Воздушная • Матовая • Плёнка
+ * Header: 7 пунктов — Главная / Продукция / Стоимость / Тех. требования /
+ * Заказать дизайн / о нас / Контакты. CTA «БЫСТРЫЙ ЗАКАЗ» ведёт на якорь
+ * калькулятора на главной.
  *
- * Контакты: Санкт-Петербург, ул. Набережная канала Грибоедова, 126
- * Copyright © 2025 Контора
+ * Footer: 3 колонки — СТИКЕРЫ / ПОЛЕЗНОЕ / МАТЕРИАЛЫ (раньше было 4).
+ *
+ * Контакты — реальные данные из footer референса:
+ *   Санкт-Петербург, наб. Обводного канала, 24д
+ *   +7 (999) 041-31-08 · info@kontora.su
+ *   t.me/kontora3d · wa.me/79990413108 · instagram.com/kontora3d
  */
 
 export type NavLink = {
@@ -25,10 +26,10 @@ export type NavColumn = {
 }
 
 export const headerNav: readonly NavLink[] = [
+  { label: 'Главная', href: '/' },
   { label: 'Продукция', href: '/catalog/stikery-s-konturnoj-rezkoj' },
-  { label: 'Стикеры', href: '/catalog/3d-stikery' },
-  { label: 'Наклейки', href: '/catalog/pryamougolnye-i-kvadratnye' },
-  { label: 'Как подготовить макет', href: '/kak-podgotovit-maket' },
+  { label: 'Стоимость', href: '/#order' },
+  { label: 'Тех. требования', href: '/kak-podgotovit-maket' },
   { label: 'Заказать дизайн', href: '/kak-podgotovit-maket#design-v-kontore' },
   { label: 'О нас', href: '/blog' },
   { label: 'Контакты', href: '/kontakty' },
@@ -36,44 +37,38 @@ export const headerNav: readonly NavLink[] = [
 
 export const headerCta: NavLink = {
   label: 'Быстрый заказ',
-  href: '/bystryj-zakaz',
+  href: '/#order',
 } as const
 
 export const footerColumns: readonly NavColumn[] = [
   {
-    title: 'Продукция',
+    title: 'Стикеры',
     links: [
+      { label: 'Стикеры с контурной резкой', href: '/catalog/stikery-s-konturnoj-rezkoj' },
       { label: '3D стикеры', href: '/catalog/3d-stikery' },
       { label: '3D стикерпаки', href: '/catalog/3d-stikerpaki' },
       { label: 'Стикерпаки', href: '/catalog/stikerpaki' },
       { label: 'Стикеры с надсечкой', href: '/catalog/stikery-s-nadsechkoj' },
-      { label: 'Стикеры с контурной резкой', href: '/catalog/stikery-s-konturnoj-rezkoj' },
-    ],
-  },
-  {
-    title: 'Наклейки',
-    links: [
-      { label: 'Прямоугольные', href: '/catalog/pryamougolnye-i-kvadratnye' },
-      { label: 'Рулонные', href: '/catalog/stikery-s-nadsechkoj' },
-      { label: 'Большие', href: '/catalog/bolshie-stikery' },
+      { label: 'Большие стикеры', href: '/catalog/bolshie-stikery' },
+      { label: 'Прямоугольные и квадратные', href: '/catalog/pryamougolnye-i-kvadratnye' },
     ],
   },
   {
     title: 'Полезное',
     links: [
+      { label: 'Быстрый заказ', href: '/#order' },
       { label: 'Как подготовить макет', href: '/kak-podgotovit-maket' },
-      { label: 'Быстрый заказ', href: '/bystryj-zakaz' },
-      { label: 'Блог', href: '/blog' },
+      { label: 'О нас', href: '/blog' },
       { label: 'Контакты', href: '/kontakty' },
     ],
   },
   {
     title: 'Материалы',
     links: [
-      { label: 'Прозрачная', href: '/catalog/stikerpaki' },
-      { label: 'Воздушная', href: '/catalog/stikerpaki' },
-      { label: 'Матовая', href: '/catalog/stikerpaki' },
-      { label: 'Плёнка', href: '/catalog/pryamougolnye-i-kvadratnye' },
+      { label: 'Прозрачная плёнка', href: '/catalog/stikerpaki' },
+      { label: 'Матовая ламинация', href: '/catalog/stikery-s-konturnoj-rezkoj' },
+      { label: 'Глянцевая ламинация', href: '/catalog/stikery-s-konturnoj-rezkoj' },
+      { label: 'Голографическая плёнка', href: '/catalog/stikery-s-konturnoj-rezkoj' },
     ],
   },
 ] as const
@@ -86,6 +81,17 @@ export const footerLegal: readonly NavLink[] = [
 
 export const footerContacts = {
   city: 'Санкт-Петербург',
-  address: 'ул. Набережная канала Грибоедова, 126',
-  copyright: '© 2025 Контора',
+  address: 'наб. Обводного канала, 24д',
+  phone: '+7 (999) 041-31-08',
+  phoneHref: 'tel:+79990413108',
+  email: 'info@kontora.su',
+  emailHref: 'mailto:info@kontora.su',
+  telegram: 't.me/kontora3d',
+  telegramHref: 'https://t.me/kontora3d',
+  whatsapp: 'WhatsApp',
+  whatsappHref: 'https://wa.me/79990413108',
+  instagram: 'instagram.com/kontora3d',
+  instagramHref: 'https://instagram.com/kontora3d',
+  hours: 'Пн–Пт · 10:00–18:00',
+  copyright: '© 2025 Kontora · Все права защищены',
 } as const

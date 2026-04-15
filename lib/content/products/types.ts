@@ -11,8 +11,10 @@ export type GalleryImage = {
 export type InfoCard = {
   readonly id: string
   readonly title: string
-  /** Может быть пустым пока владелец не предоставит финальный текст. */
+  /** Короткое описание (1–2 предложения). Может быть пустым, если есть bullets. */
   readonly body: string
+  /** Список пунктов из референса (например «Почему выбирают» / «Где используют»). */
+  readonly bullets?: readonly string[]
   readonly tone: StickerTone
 }
 

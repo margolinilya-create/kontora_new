@@ -1,10 +1,8 @@
 /**
- * Контактные данные. Адрес — из PDF §Общие элементы. Телефон и почта —
- * placeholder до получения реальных данных от владельца.
+ * Контактные данные. Источник — reference site kontora.futuguru.com
+ * (/tmp/ref-audit/contacts.html и footer всех страниц).
  *
- * TODO(owner): заменить PHONE_PLACEHOLDER и EMAIL_PLACEHOLDER на реальные
- * значения из .env.local (NEXT_PUBLIC_CONTACT_PHONE / NEXT_PUBLIC_CONTACT_EMAIL)
- * или прямо в этом файле.
+ * Реальный адрес, телефон, email и мессенджеры.
  */
 
 export const contacts = {
@@ -17,14 +15,25 @@ export const contacts = {
   office: {
     title: 'ОФИС И ПРОИЗВОДСТВО',
     city: 'Санкт-Петербург',
-    address: 'ул. Набережная канала Грибоедова, 126',
-    hours: 'Пн–Пт · 10:00–19:00 МСК',
+    address: 'наб. Обводного канала, 24д',
+    hours: 'Пн–Пт · 10:00–18:00',
   },
   channels: [
-    { id: 'email', label: 'Почта', value: 'hello@kontora.su', href: 'mailto:hello@kontora.su' },
-    { id: 'phone', label: 'Телефон', value: '+7 (911) 000-00-00', href: 'tel:+79110000000' },
-    { id: 'telegram', label: 'Telegram', value: '@kontora_su', href: 'https://t.me/kontora_su' },
-    { id: 'whatsapp', label: 'WhatsApp', value: 'Написать в WhatsApp', href: 'https://wa.me/79110000000' },
+    { id: 'email', label: 'Почта', value: 'info@kontora.su', href: 'mailto:info@kontora.su' },
+    { id: 'phone', label: 'Телефон', value: '+7 (999) 041-31-08', href: 'tel:+79990413108' },
+    { id: 'telegram', label: 'Telegram', value: 't.me/kontora3d', href: 'https://t.me/kontora3d' },
+    {
+      id: 'whatsapp',
+      label: 'WhatsApp',
+      value: 'Написать в WhatsApp',
+      href: 'https://wa.me/79990413108',
+    },
+    {
+      id: 'instagram',
+      label: 'Instagram',
+      value: 'instagram.com/kontora3d',
+      href: 'https://instagram.com/kontora3d',
+    },
   ],
   note:
     'Для крупных тиражей и B2B-заявок удобнее через форму «Запрос для менеджера» — мы перезваниваем в течение часа.',
