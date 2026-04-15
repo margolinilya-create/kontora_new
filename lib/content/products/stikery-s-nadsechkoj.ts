@@ -21,12 +21,10 @@ export const productNotch: ProductContent = {
     subtitle:
       'Кофейни, булочные, бренды косметик, каждый из наших клиентов продолжает пользоваться наклейками и заказывают тиражи от 1000 штук',
     images: [
-      { id: 'n1', tone: 'yellow', alt: 'Лист стикеров с надсечкой для мерча' },
-      { id: 'n2', tone: 'violet', alt: 'Рулон стикеров для маркетплейса' },
-      { id: 'n3', tone: 'cream', alt: 'Крупный план надсечки по контуру' },
-      { id: 'n4', tone: 'pink', alt: 'Стикеры с надсечкой в упаковке' },
-      { id: 'n5', tone: 'blue', alt: 'Лист стикеров готов к раздаче' },
-      { id: 'n6', tone: 'holo', alt: 'Рулон голографических стикеров' },
+      { id: 'n1', tone: 'yellow', alt: 'Лист стикеров с надсечкой для мерча', src: '/brand/gallery/rectangle-67.png', width: 509, height: 652 },
+      { id: 'n2', tone: 'violet', alt: 'Рулон стикеров для маркетплейса', src: '/brand/gallery/rectangle-68.png', width: 645, height: 406 },
+      { id: 'n3', tone: 'cream', alt: 'Крупный план надсечки по контуру', src: '/brand/gallery/rectangle-69.png', width: 618, height: 390 },
+      { id: 'n4', tone: 'pink', alt: 'Стикеры с надсечкой в упаковке', src: '/brand/gallery/rectangle-70.png', width: 578, height: 485 },
     ],
   },
   infoCards: [

@@ -22,12 +22,12 @@ export const productRect: ProductContent = {
     subtitle:
       'Занимаемся производственными процессами и упаковкой наших товаров, чтобы каждый смог просто взять и подарить',
     images: [
-      { id: 'r1', tone: 'cream', alt: 'Прямоугольные этикетки для бутылок' },
-      { id: 'r2', tone: 'yellow', alt: 'Квадратные наклейки на упаковке' },
-      { id: 'r3', tone: 'violet', alt: 'Маркировка продукции с логотипом' },
-      { id: 'r4', tone: 'blue', alt: 'Фирменные этикетки бренда косметики' },
-      { id: 'r5', tone: 'pink', alt: 'Стикеры для маркетплейсов' },
-      { id: 'r6', tone: 'gold', alt: 'Премиум-этикетки на золотой плёнке' },
+      { id: 'r1', tone: 'cream', alt: 'Прямоугольные этикетки для бутылок', src: '/brand/gallery/rectangle-47.png', width: 430, height: 344 },
+      { id: 'r2', tone: 'yellow', alt: 'Квадратные наклейки на упаковке', src: '/brand/gallery/rectangle-48.png', width: 430, height: 344 },
+      { id: 'r3', tone: 'violet', alt: 'Маркировка продукции с логотипом', src: '/brand/gallery/rectangle-49.png', width: 430, height: 344 },
+      { id: 'r4', tone: 'blue', alt: 'Фирменные этикетки бренда косметики', src: '/brand/gallery/rectangle-45-1.png', width: 430, height: 271 },
+      { id: 'r5', tone: 'pink', alt: 'Стикеры для маркетплейсов', src: '/brand/gallery/rectangle-50-1.png', width: 430, height: 271 },
+      { id: 'r6', tone: 'gold', alt: 'Премиум-этикетки на золотой плёнке', src: '/brand/gallery/rectangle-51-3.png', width: 430, height: 485 },
     ],
   },
   infoCards: [

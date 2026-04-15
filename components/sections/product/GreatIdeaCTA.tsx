@@ -23,7 +23,13 @@ export function GreatIdeaCTA({ content }: { content: ProductContent }) {
                 </h2>
                 <p className="max-w-md text-pretty text-lg text-cream-soft">{content.cta.body}</p>
                 <div className="mt-2">
-                  <StickerButton href={content.cta.button.href} size="lg" tone="yellow">
+                  <StickerButton
+                    href={content.cta.button.href}
+                    size="lg"
+                    tone="violet"
+                    className="rounded-full"
+                  >
+                    <span aria-hidden="true">📎</span>
                     {content.cta.button.label}
                   </StickerButton>
                 </div>

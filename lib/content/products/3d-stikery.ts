@@ -21,12 +21,12 @@ export const product3dStikery: ProductContent = {
     subtitle:
       'Занимаемся производственными процессами и упаковкой наших товаров, чтобы каждый смог просто взять и подарить',
     images: [
-      { id: 's1', tone: 'pink', alt: '3D стикер с эффектом линзы' },
-      { id: 's2', tone: 'yellow', alt: 'Коллекция 3D стикеров разных форм' },
-      { id: 's3', tone: 'violet', alt: '3D стикер на ноутбуке клиента' },
-      { id: 's4', tone: 'blue', alt: 'Крупный план капли смолы' },
-      { id: 's5', tone: 'cream', alt: 'Набор 3D наклеек для мерча' },
-      { id: 's6', tone: 'holo', alt: '3D стикер с голографической подложкой' },
+      { id: 's1', tone: 'pink', alt: '3D стикер с эффектом линзы', src: '/brand/gallery/rectangle-45.png', width: 430, height: 271 },
+      { id: 's2', tone: 'yellow', alt: 'Коллекция 3D стикеров разных форм', src: '/brand/gallery/rectangle-47.png', width: 430, height: 344 },
+      { id: 's3', tone: 'violet', alt: '3D стикер на ноутбуке клиента', src: '/brand/gallery/rectangle-48.png', width: 430, height: 344 },
+      { id: 's4', tone: 'blue', alt: 'Крупный план капли смолы', src: '/brand/gallery/rectangle-49.png', width: 430, height: 344 },
+      { id: 's5', tone: 'cream', alt: 'Набор 3D наклеек для мерча', src: '/brand/gallery/rectangle-50.png', width: 430, height: 271 },
+      { id: 's6', tone: 'holo', alt: '3D стикер с голографической подложкой', src: '/brand/gallery/rectangle-64.png', width: 430, height: 271 },
     ],
   },
   infoCards: [

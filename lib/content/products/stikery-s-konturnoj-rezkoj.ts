@@ -25,12 +25,12 @@ export const productKontur: ProductContent = {
     subtitle:
       'Имеем большой опыт производства, поэтому нам доверяют как малые, так и крупные бренды',
     images: [
-      { id: 'k1', tone: 'cream', alt: 'Пример стикеров с контурной резкой на листе' },
-      { id: 'k2', tone: 'yellow', alt: 'Фирменные наклейки с логотипом клиента' },
-      { id: 'k3', tone: 'violet', alt: 'Стикеры для мерча инди-бренда' },
-      { id: 'k4', tone: 'blue', alt: 'Набор брендовых наклеек в упаковке' },
-      { id: 'k5', tone: 'pink', alt: 'Стикеры с контурной резкой на ноутбуке' },
-      { id: 'k6', tone: 'holo', alt: 'Коллекция стикеров разных форм' },
+      { id: 'k1', tone: 'cream', alt: 'Пример стикеров с контурной резкой на листе', src: '/brand/gallery/rectangle-44-2.png', width: 440, height: 485 },
+      { id: 'k2', tone: 'yellow', alt: 'Фирменные наклейки с логотипом клиента', src: '/brand/gallery/rectangle-45.png', width: 430, height: 271 },
+      { id: 'k3', tone: 'violet', alt: 'Стикеры для мерча инди-бренда', src: '/brand/gallery/rectangle-50.png', width: 430, height: 271 },
+      { id: 'k4', tone: 'blue', alt: 'Набор брендовых наклеек в упаковке', src: '/brand/gallery/rectangle-51-1.png', width: 430, height: 485 },
+      { id: 'k5', tone: 'pink', alt: 'Стикеры с контурной резкой на ноутбуке', src: '/brand/gallery/rectangle-63-1.png', width: 430, height: 485 },
+      { id: 'k6', tone: 'holo', alt: 'Коллекция стикеров разных форм', src: '/brand/gallery/rectangle-64.png', width: 430, height: 271 },
     ],
   },
   infoCards: [

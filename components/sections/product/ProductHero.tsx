@@ -1,12 +1,11 @@
-import { ArrowRight } from 'lucide-react'
 import type { ProductContent } from '@/lib/content/products'
 import { Container } from '@/components/ui/Container'
 import { StickerButton } from '@/components/brand/StickerButton'
 
 /**
- * Product hero. Крупный display-заголовок с фиолетовой контур-обводкой
- * (анкер продуктовых страниц) + описание + CTA. Справа — декоративный
- * sticker-cluster для визуального баланса.
+ * Product hero. Крупный display-заголовок с фиолетовой контур-обводкой,
+ * subtitle + CTA. CTA «📎 Быстрый заказ» скроллит к inline калькулятору
+ * внизу страницы (#order, через ProductQuickOrder секцию).
  */
 export function ProductHero({ content }: { content: ProductContent }) {
   return (
@@ -31,12 +30,22 @@ export function ProductHero({ content }: { content: ProductContent }) {
         </p>
 
         <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-          <StickerButton href={content.hero.cta.href} size="lg" tone="yellow">
-            {content.hero.cta.label}
-            <ArrowRight className="h-5 w-5" strokeWidth={2.5} />
+          <StickerButton
+            href="#order"
+            size="lg"
+            tone="violet"
+            className="rounded-full"
+          >
+            <span aria-hidden="true">📎</span>
+            Быстрый заказ
           </StickerButton>
-          <StickerButton href="/#manager-request" size="lg" tone="cream">
-            Запросить у менеджера
+          <StickerButton
+            href="/kontakty"
+            size="lg"
+            tone="ghost"
+            className="rounded-full"
+          >
+            Связаться с менеджером
           </StickerButton>
         </div>
       </Container>

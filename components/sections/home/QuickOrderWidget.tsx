@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import Link from 'next/link'
-import type { LaminationKey, MaterialKey } from '@/lib/pricing/types'
+import type { LaminationKey, MaterialKey, ProductKey } from '@/lib/pricing/types'
 import { useCalculator } from '@/lib/calculator/use-calculator'
 import { track } from '@/lib/analytics/track'
 import { Container } from '@/components/ui/Container'
@@ -10,19 +10,25 @@ import { StickerButton } from '@/components/brand/StickerButton'
 import { cn } from '@/lib/utils/cn'
 import { home } from '@/lib/content/home'
 
+type QuickOrderWidgetProps = {
+  /** Пресет продукта для продуктовых страниц (hydrate через useCalculator). */
+  initialProduct?: ProductKey
+  /** Необязательный override заголовка — продуктовые страницы ставят
+   *  «БЫСТРЫЙ ЗАКАЗ · <product>» чтобы не было конфликта h2 с home. */
+  eyebrow?: string
+}
+
 /**
- * Inline «Быстрый заказ» калькулятор на главной. 6 полей из референса
+ * Inline «Быстрый заказ» калькулятор. 6 полей из референса
  * kontora.futuguru.com (home.html):
  *   Материал / Размер / Произвольный размер в см / Количество / Ламинация / Стоимость
  *
- * Переиспользует useCalculator (общий reducer + persist) так что draft и
- * цена синхронизированы с полноразмерным /bystryj-zakaz.
- *
- * На референсе калькулятор — embedded секция с якорем #order, куда ведут
- * все CTA «БЫСТРЫЙ ЗАКАЗ» и «На заказ».
+ * Переиспользует useCalculator (общий reducer + persist) — draft и цена
+ * синхронизированы с полноразмерным /bystryj-zakaz. Мнётся между home,
+ * продуктовыми страницами (initialProduct), и везде где нужен anchor #order.
  */
-export function QuickOrderWidget() {
-  const [state, dispatch] = useCalculator()
+export function QuickOrderWidget({ initialProduct, eyebrow }: QuickOrderWidgetProps = {}) {
+  const [state, dispatch] = useCalculator(initialProduct)
 
   useEffect(() => {
     track({ name: 'calc_open', props: { product: state.product, surface: 'embed' } })
@@ -42,7 +48,7 @@ export function QuickOrderWidget() {
       <Container size="lg">
         <div className="mx-auto mb-10 max-w-2xl text-center">
           <p className="mb-3 font-mono text-xs uppercase tracking-widest text-yellow">
-            {home.quickOrder.eyebrow}
+            {eyebrow ?? home.quickOrder.eyebrow}
           </p>
           <h2 id="quick-order-title" className="text-display-lg font-display">
             {home.quickOrder.title}

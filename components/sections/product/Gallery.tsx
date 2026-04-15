@@ -1,14 +1,15 @@
+import Image from 'next/image'
 import type { GalleryImage, ProductContent } from '@/lib/content/products/types'
 import { Container } from '@/components/ui/Container'
 import { RevealOnScroll } from '@/components/ui/RevealOnScroll'
 import { cn } from '@/lib/utils/cn'
 
 /**
- * Галерея работ. Masonry-сетка 3×2 (desktop) / 2×3 (tablet) / 1 (mobile).
- * До получения реальных фотографий используются CSS-тайлы в брендовых
- * цветах с alt-текстами — каждый тайл помечен `aria-label` для a11y.
- *
- * TODO(M6): заменить на `next/image` с реальными фото из `public/gallery/<slug>/`.
+ * Галерея работ продуктовой страницы. Реальные PNG из
+ * public/brand/gallery/* (привязка per-slug в lib/content/products/*.ts).
+ * Если у картинки нет `src` — рендерится цветной CSS-плейсхолдер
+ * (использовалось до M9.7 и сохраняется как fallback для продуктов,
+ * у которых в референсе не было галереи).
  */
 const toneClassMap: Record<GalleryImage['tone'], string> = {
   yellow: 'bg-yellow',
@@ -42,21 +43,37 @@ export function Gallery({ content }: { content: ProductContent }) {
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
           {content.gallery.images.map((img, i) => (
             <RevealOnScroll key={img.id} delay={i * 0.04}>
-              <div
-                aria-label={img.alt}
-                role="img"
-                className={cn(
-                  'relative aspect-square overflow-hidden rounded-xl   transition-transform duration-fast ease-out hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-soft-lg',
-                  toneClassMap[img.tone],
-                  i % 2 === 0 ? '-rotate-1' : 'rotate-1',
-                )}
-              >
-                {/* декоративная «наклейка» с индексом, пока нет фото */}
-                <span className="absolute left-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-bg-base font-mono text-xs font-bold text-yellow">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="sr-only">{img.alt}</span>
-              </div>
+              {img.src ? (
+                <div
+                  className={cn(
+                    'relative aspect-square overflow-hidden rounded-2xl border border-line bg-bg-surface shadow-soft transition-transform duration-fast ease-out hover:-translate-y-[3px] hover:shadow-soft-lg',
+                    i % 2 === 0 ? '-rotate-[0.5deg]' : 'rotate-[0.5deg]',
+                  )}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(min-width: 1024px) 320px, (min-width: 768px) 33vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div
+                  aria-label={img.alt}
+                  role="img"
+                  className={cn(
+                    'relative aspect-square overflow-hidden rounded-2xl transition-transform duration-fast ease-out hover:-translate-y-[3px] hover:shadow-soft-lg',
+                    toneClassMap[img.tone],
+                    i % 2 === 0 ? '-rotate-1' : 'rotate-1',
+                  )}
+                >
+                  <span className="absolute left-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-bg-base font-mono text-xs font-bold text-violet">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="sr-only">{img.alt}</span>
+                </div>
+              )}
             </RevealOnScroll>
           ))}
         </div>

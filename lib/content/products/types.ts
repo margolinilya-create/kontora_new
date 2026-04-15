@@ -3,9 +3,14 @@ import type { ProductSlug } from '@/lib/routes'
 
 export type GalleryImage = {
   readonly id: string
-  /** Временно — CSS-placeholder тон. В M6 заменится на src реального фото. */
+  /** CSS-тон плейсхолдера если `src` отсутствует. */
   readonly tone: StickerTone | 'gold' | 'holo'
   readonly alt: string
+  /** Абсолютный путь к реальной картинке (public/brand/gallery/...). */
+  readonly src?: string
+  /** SVG-заголовок поверх галереи (у некоторых страниц вместо h2). */
+  readonly width?: number
+  readonly height?: number
 }
 
 export type InfoCard = {

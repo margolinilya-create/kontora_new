@@ -21,12 +21,12 @@ export const productStikerpaki: ProductContent = {
     subtitle:
       'Занимаемся производственными процессами и упаковкой наших товаров, чтобы каждый смог просто взять и подарить',
     images: [
-      { id: 'sp1', tone: 'holo', alt: 'Стикерпак на голографической подложке' },
-      { id: 'sp2', tone: 'yellow', alt: 'Лист с набором стикеров для мерча' },
-      { id: 'sp3', tone: 'violet', alt: 'Стикерпак бренда косметики' },
-      { id: 'sp4', tone: 'cream', alt: 'Набор стикеров на матовой плёнке' },
-      { id: 'sp5', tone: 'pink', alt: 'Подарочный стикерпак с глянцевой ламинацией' },
-      { id: 'sp6', tone: 'blue', alt: 'Стикерпак в брендовой упаковке' },
+      { id: 'sp1', tone: 'holo', alt: 'Стикерпак на голографической подложке', src: '/brand/gallery/rectangle-47-1.png', width: 430, height: 344 },
+      { id: 'sp2', tone: 'yellow', alt: 'Лист с набором стикеров для мерча', src: '/brand/gallery/rectangle-48-1.png', width: 430, height: 344 },
+      { id: 'sp3', tone: 'violet', alt: 'Стикерпак бренда косметики', src: '/brand/gallery/rectangle-49-1.png', width: 430, height: 344 },
+      { id: 'sp4', tone: 'cream', alt: 'Набор стикеров на матовой плёнке', src: '/brand/gallery/rectangle-71.png', width: 430, height: 271 },
+      { id: 'sp5', tone: 'pink', alt: 'Подарочный стикерпак с глянцевой ламинацией', src: '/brand/gallery/rectangle-72.png', width: 430, height: 271 },
+      { id: 'sp6', tone: 'blue', alt: 'Стикерпак в брендовой упаковке', src: '/brand/gallery/rectangle-73.png', width: 430, height: 271 },
     ],
   },
   infoCards: [

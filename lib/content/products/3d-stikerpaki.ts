@@ -21,12 +21,12 @@ export const product3dStikerpaki: ProductContent = {
     subtitle:
       'Занимаемся производственными процессами и упаковкой наших товаров, чтобы каждый смог просто взять и подарить',
     images: [
-      { id: 'p1', tone: 'yellow', alt: '3D стикерпак в подарочной упаковке' },
-      { id: 'p2', tone: 'pink', alt: 'Набор объёмных стикеров для мерча' },
-      { id: 'p3', tone: 'violet', alt: 'Коллекция 3D стикерпаков' },
-      { id: 'p4', tone: 'blue', alt: 'Стикерпак с логотипом клиента' },
-      { id: 'p5', tone: 'cream', alt: '3D стикерпак рядом с упаковкой' },
-      { id: 'p6', tone: 'peach', alt: 'Детализация смоляной линзы' },
+      { id: 'p1', tone: 'yellow', alt: '3D стикерпак в подарочной упаковке', src: '/brand/gallery/rectangle-44-4.png', width: 440, height: 485 },
+      { id: 'p2', tone: 'pink', alt: 'Набор объёмных стикеров для мерча', src: '/brand/gallery/rectangle-44-5.png', width: 430, height: 271 },
+      { id: 'p3', tone: 'violet', alt: 'Коллекция 3D стикерпаков', src: '/brand/gallery/rectangle-45-1.png', width: 430, height: 271 },
+      { id: 'p4', tone: 'blue', alt: 'Стикерпак с логотипом клиента', src: '/brand/gallery/rectangle-50-1.png', width: 430, height: 271 },
+      { id: 'p5', tone: 'cream', alt: '3D стикерпак рядом с упаковкой', src: '/brand/gallery/rectangle-51-3.png', width: 430, height: 485 },
+      { id: 'p6', tone: 'peach', alt: 'Детализация смоляной линзы', src: '/brand/gallery/rectangle-66-1.png', width: 430, height: 485 },
     ],
   },
   infoCards: [
