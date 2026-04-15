@@ -1,4 +1,4 @@
-import { ArrowRight, FileType2 } from 'lucide-react'
+import { FileType2 } from 'lucide-react'
 import { howto } from '@/lib/content/howto'
 import { Container } from '@/components/ui/Container'
 import { StickerButton } from '@/components/brand/StickerButton'
@@ -36,11 +36,21 @@ export function HowToHero() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <StickerButton href={howto.hero.ctaPrimary.href} size="lg" tone="yellow">
+          <StickerButton
+            href={howto.hero.ctaPrimary.href}
+            size="lg"
+            tone="violet"
+            className="rounded-full"
+          >
+            <span aria-hidden="true">📎</span>
             {howto.hero.ctaPrimary.label}
-            <ArrowRight className="h-5 w-5" strokeWidth={2.5} />
           </StickerButton>
-          <StickerButton href={howto.hero.ctaSecondary.href} size="lg" tone="cream">
+          <StickerButton
+            href={howto.hero.ctaSecondary.href}
+            size="lg"
+            tone="ghost"
+            className="rounded-full"
+          >
             {howto.hero.ctaSecondary.label}
           </StickerButton>
         </div>

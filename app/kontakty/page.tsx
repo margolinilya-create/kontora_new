@@ -12,6 +12,12 @@ export const metadata: Metadata = buildMetadata(routes.kontakty)
 export const dynamic = 'force-static'
 export const revalidate = false
 
+/**
+ * Страница «Контакты». Левая колонка — адрес/часы/заметка/CTA,
+ * правая — pill-карточки каналов связи (email/phone/telegram/whatsapp/
+ * instagram) из lib/content/contacts.ts (обновлено в M9.2 с реальными
+ * данными референса).
+ */
 export default function KontaktyPage() {
   return (
     <>
@@ -57,8 +63,14 @@ export default function KontaktyPage() {
                   </p>
                 </div>
                 <p className="max-w-md text-pretty text-sm text-cream-muted">{contacts.note}</p>
-                <StickerButton href="/#manager-request" size="lg" tone="yellow">
-                  Оставить заявку
+                <StickerButton
+                  href="/#order"
+                  size="lg"
+                  tone="violet"
+                  className="rounded-full"
+                >
+                  <span aria-hidden="true">📎</span>
+                  Быстрый заказ
                 </StickerButton>
               </div>
             </RevealOnScroll>
@@ -69,17 +81,21 @@ export default function KontaktyPage() {
                   <li key={ch.id}>
                     <a
                       href={ch.href}
-                      className="flex items-center justify-between gap-4 rounded-lg  bg-bg-base p-5  transition-transform duration-fast hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-soft-lg"
+                      target={ch.href.startsWith('http') ? '_blank' : undefined}
+                      rel={ch.href.startsWith('http') ? 'noreferrer' : undefined}
+                      className="flex items-center justify-between gap-4 rounded-2xl border-2 border-line bg-bg-base p-5 transition-[transform,border-color] duration-fast hover:-translate-y-[2px] hover:border-violet"
                     >
                       <div className="flex flex-col gap-1">
-                        <span className="font-mono text-xs uppercase tracking-widest text-yellow">
+                        <span className="font-mono text-xs uppercase tracking-widest text-violet">
                           {ch.label}
                         </span>
                         <span className="font-display text-lg font-bold text-cream">
                           {ch.value}
                         </span>
                       </div>
-                      <span className="font-mono text-2xl text-yellow" aria-hidden="true">→</span>
+                      <span className="font-mono text-2xl text-violet" aria-hidden="true">
+                        →
+                      </span>
                     </a>
                   </li>
                 ))}
