@@ -54,7 +54,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               type="button"
               aria-label="Закрыть меню"
               onClick={onClose}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-md border-2 border-cream/20 text-cream hover:border-yellow hover:text-yellow"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border-2 border-cream/20 text-cream hover:border-violet hover:text-violet"
             >
               <X className="h-5 w-5" strokeWidth={2.5} />
             </button>
@@ -63,10 +63,11 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           <nav aria-label="Мобильная навигация" className="flex-1 overflow-y-auto px-6 py-8">
             <ul className="flex flex-col gap-1">
               {headerNav.map((item) => {
+                const base = item.href.split('#')[0] ?? item.href
                 const isActive =
                   item.href === '/'
                     ? pathname === '/'
-                    : pathname.startsWith(item.href.split('#')[0] ?? item.href)
+                    : base !== '/' && pathname.startsWith(base)
                 return (
                   <li key={item.href}>
                     <Link
@@ -74,7 +75,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                       onClick={onClose}
                       className={cn(
                         'block border-b border-line py-4 font-display text-2xl font-bold uppercase tracking-tight transition-colors',
-                        isActive ? 'text-yellow' : 'text-cream hover:text-yellow',
+                        isActive ? 'text-violet' : 'text-cream hover:text-violet',
                       )}
                     >
                       {item.label}
@@ -86,7 +87,14 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           </nav>
 
           <div className="border-t border-line px-6 py-6">
-            <StickerButton href={headerCta.href} size="lg" tone="yellow" className="w-full" onClick={onClose}>
+            <StickerButton
+              href={headerCta.href}
+              size="lg"
+              tone="violet"
+              className="w-full rounded-full"
+              onClick={onClose}
+            >
+              <span aria-hidden="true">📎</span>
               {headerCta.label}
             </StickerButton>
           </div>

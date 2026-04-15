@@ -12,9 +12,10 @@ import { cn } from '@/lib/utils/cn'
 import { MobileMenu } from '@/components/sections/shared/MobileMenu'
 
 /**
- * Sticky header с эффектом «glass» при скролле и жёлтым маркером под
- * активным пунктом (через Framer layoutId — плавный переход между пунктами).
- * Client компонент потому что читает pathname и scroll state.
+ * Sticky header с glass-эффектом при скролле. Reference-style:
+ *   • violet pill под активным пунктом (через framer layoutId)
+ *   • CTA «📎 Быстрый заказ» с pushpin-эмодзи и violet tone
+ *   • 7 nav items из headerNav
  */
 export function Header() {
   const pathname = usePathname()
@@ -45,23 +46,27 @@ export function Header() {
             <LayoutGroup id="header-nav">
               <ul className="flex items-center gap-1">
                 {headerNav.map((item) => {
+                  const base = item.href.split('#')[0] ?? item.href
                   const isActive =
                     item.href === '/'
                       ? pathname === '/'
-                      : pathname.startsWith(item.href.split('#')[0] ?? item.href)
+                      : base !== '/' && pathname.startsWith(base)
                   return (
                     <li key={item.href} className="relative">
                       <Link
                         href={item.href}
                         className={cn(
-                          'relative inline-flex items-center rounded-sm px-3 py-2 font-body text-sm font-semibold transition-colors duration-fast',
-                          isActive ? 'text-yellow-ink' : 'text-cream-soft hover:text-cream',
+                          'relative inline-flex items-center rounded-full px-4 py-2 font-body text-sm font-semibold uppercase tracking-wide transition-colors duration-fast',
+                          isActive
+                            ? 'text-violet-ink'
+                            : 'text-cream-soft hover:text-cream',
                         )}
                       >
                         {isActive ? (
                           <motion.span
                             layoutId="header-marker"
-                            className="absolute inset-0 -z-10 rounded-sm bg-yellow"
+                            aria-hidden="true"
+                            className="absolute inset-0 -z-10 rounded-full bg-violet"
                             transition={{ type: 'spring', stiffness: 520, damping: 40 }}
                           />
                         ) : null}
@@ -75,7 +80,13 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <StickerButton href={headerCta.href} size="sm" tone="yellow" className="hidden md:inline-flex">
+            <StickerButton
+              href={headerCta.href}
+              size="sm"
+              tone="violet"
+              className="hidden rounded-full md:inline-flex"
+            >
+              <span aria-hidden="true">📎</span>
               {headerCta.label}
             </StickerButton>
             <button
@@ -83,7 +94,7 @@ export function Header() {
               aria-label="Открыть меню"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen(true)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-md border-2 border-cream/20 text-cream transition-colors hover:border-yellow hover:text-yellow lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border-2 border-cream/20 text-cream transition-colors hover:border-violet hover:text-violet lg:hidden"
             >
               <Menu className="h-5 w-5" strokeWidth={2.5} />
             </button>
