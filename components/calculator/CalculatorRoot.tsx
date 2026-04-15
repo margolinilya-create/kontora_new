@@ -44,8 +44,8 @@ export function CalculatorRoot({ initialProduct }: Props) {
   }, [state.output?.price, state.product])
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,400px)] lg:gap-12">
-      <div className="flex flex-col">
+    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,400px)] lg:gap-10">
+      <div className="flex flex-col rounded-3xl border border-line bg-bg-surface-2 p-6 shadow-soft-lg md:p-10">
         <StepProduct
           value={state.product}
           onChange={(product) => dispatch({ type: 'set-product', product })}

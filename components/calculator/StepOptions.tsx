@@ -49,10 +49,10 @@ export function StepOptions({
                 aria-pressed={active}
                 onClick={() => onLamination(o.key)}
                 className={cn(
-                  'flex min-w-[160px] flex-col gap-0.5 rounded-md  px-4 py-3 text-left transition-[transform,box-shadow] duration-fast ease-out',
+                  'flex min-w-[160px] flex-col gap-0.5 rounded-2xl border-2 px-4 py-3 text-left transition-[transform,box-shadow,border-color] duration-fast ease-out',
                   active
-                    ? 'bg-yellow text-yellow-ink shadow-soft-lg'
-                    : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
+                    ? 'border-violet bg-violet text-violet-ink shadow-soft-lg'
+                    : 'border-line bg-bg-surface text-cream hover:-translate-y-[2px] hover:border-violet/60',
                 )}
               >
                 <span className="font-display text-sm font-bold uppercase">{o.label}</span>
@@ -101,10 +101,10 @@ function OptionToggle({
       aria-checked={checked}
       onClick={onChange}
       className={cn(
-        'flex items-center justify-between gap-4 rounded-md  px-4 py-3 text-left transition-[transform,box-shadow] duration-fast ease-out',
+        'flex items-center justify-between gap-4 rounded-2xl border-2 px-4 py-3 text-left transition-[transform,box-shadow,border-color] duration-fast ease-out',
         checked
-          ? 'bg-violet text-white shadow-soft-lg'
-          : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
+          ? 'border-violet bg-violet text-violet-ink shadow-soft-lg'
+          : 'border-line bg-bg-surface text-cream hover:-translate-y-[2px] hover:border-violet/60',
       )}
     >
       <span className="flex flex-col gap-0.5">
@@ -113,11 +113,11 @@ function OptionToggle({
       </span>
       <span
         className={cn(
-          'flex h-7 w-12 shrink-0 items-center rounded-full  transition-colors',
-          checked ? 'justify-end bg-yellow' : 'justify-start bg-bg-surface-2',
+          'flex h-7 w-12 shrink-0 items-center rounded-full border-2 border-line/40 transition-colors',
+          checked ? 'justify-end bg-bg-base' : 'justify-start bg-bg-surface-2',
         )}
       >
-        <span className="mx-0.5 h-5 w-5 rounded-full  bg-bg-base" />
+        <span className="mx-0.5 h-5 w-5 rounded-full bg-cream" />
       </span>
     </button>
   )

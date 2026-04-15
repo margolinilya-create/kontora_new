@@ -51,7 +51,7 @@ export function StepUpload({ file, onChange }: Props) {
       description="Загрузите макет в PDF, AI, EPS или растре (PNG/JPG). Максимум 30 MB. Макет — не обязателен, можно прислать позже."
     >
       {file ? (
-        <div className="flex items-center justify-between gap-4 rounded-lg  bg-yellow p-4 shadow-soft-lg text-yellow-ink">
+        <div className="flex items-center justify-between gap-4 rounded-2xl border-2 border-violet bg-violet p-4 text-violet-ink shadow-soft-lg">
           <div className="flex items-center gap-3">
             <FileCheck2 className="h-6 w-6 shrink-0" strokeWidth={2.5} />
             <div className="flex flex-col overflow-hidden">
@@ -65,7 +65,7 @@ export function StepUpload({ file, onChange }: Props) {
             type="button"
             aria-label="Удалить файл"
             onClick={() => onChange(null)}
-            className="flex h-9 w-9 items-center justify-center rounded-md  bg-bg-base text-yellow"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-bg-base text-violet"
           >
             <X className="h-4 w-4" strokeWidth={3} />
           </button>
@@ -85,11 +85,11 @@ export function StepUpload({ file, onChange }: Props) {
             if (f) void handleFile(f)
           }}
           className={cn(
-            'flex cursor-pointer flex-col items-center gap-3 rounded-lg border-2 border-dashed border-line bg-bg-surface p-10 text-center transition-colors duration-fast',
-            dragging && 'border-yellow bg-bg-surface-2',
+            'flex cursor-pointer flex-col items-center gap-3 rounded-2xl border-2 border-dashed border-line bg-bg-surface p-10 text-center transition-colors duration-fast',
+            dragging && 'border-violet bg-bg-surface-2',
           )}
         >
-          <UploadCloud className="h-10 w-10 text-yellow" strokeWidth={2} />
+          <UploadCloud className="h-10 w-10 text-violet" strokeWidth={2} />
           <div>
             <p className="font-display text-lg font-bold uppercase">Перетащите сюда макет</p>
             <p className="mt-1 text-sm text-cream-muted">или кликните, чтобы выбрать файл</p>

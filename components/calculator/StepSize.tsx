@@ -39,10 +39,10 @@ export function StepSize({ width, height, onChange }: Props) {
               aria-pressed={active}
               onClick={() => onChange(p.width, p.height)}
               className={cn(
-                'rounded-md  px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest transition-[transform,box-shadow] duration-fast ease-out',
+                'inline-flex h-10 items-center rounded-full border-2 px-4 font-mono text-xs font-bold uppercase tracking-widest transition-[transform,background,border-color] duration-fast ease-out',
                 active
-                  ? 'bg-yellow text-yellow-ink shadow-soft-lg'
-                  : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
+                  ? 'border-violet bg-violet text-violet-ink shadow-soft-lg'
+                  : 'border-line bg-bg-surface text-cream hover:-translate-y-[1px] hover:border-violet/60',
               )}
             >
               {p.label}
@@ -67,7 +67,7 @@ export function StepSize({ width, height, onChange }: Props) {
             max={10000}
             value={width}
             onChange={(e) => onChange(Number(e.target.value), height)}
-            className="h-12 rounded-md border-2 border-line bg-bg-surface px-4 font-mono text-lg font-bold text-cream transition-colors hover:border-cream/20 focus:border-yellow focus:outline-none"
+            className="h-12 rounded-full border-2 border-line bg-bg-surface px-5 font-mono text-lg font-bold text-cream transition-colors hover:border-cream/20 focus:border-violet focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -85,7 +85,7 @@ export function StepSize({ width, height, onChange }: Props) {
             max={10000}
             value={height}
             onChange={(e) => onChange(width, Number(e.target.value))}
-            className="h-12 rounded-md border-2 border-line bg-bg-surface px-4 font-mono text-lg font-bold text-cream transition-colors hover:border-cream/20 focus:border-yellow focus:outline-none"
+            className="h-12 rounded-full border-2 border-line bg-bg-surface px-5 font-mono text-lg font-bold text-cream transition-colors hover:border-cream/20 focus:border-violet focus:outline-none"
           />
         </div>
       </div>

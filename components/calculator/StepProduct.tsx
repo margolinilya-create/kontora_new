@@ -30,16 +30,16 @@ export function StepProduct({ value, onChange }: Props) {
               aria-pressed={active}
               onClick={() => onChange(p.slug)}
               className={cn(
-                'group flex items-start gap-4 rounded-lg  p-4 text-left transition-[transform,box-shadow,background] duration-fast ease-out focus-visible:-translate-y-[2px]',
+                'group flex items-start gap-4 rounded-2xl border-2 p-4 text-left transition-[transform,box-shadow,border-color] duration-fast ease-out focus-visible:-translate-y-[2px]',
                 active
-                  ? 'bg-yellow text-yellow-ink shadow-soft-lg'
-                  : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
+                  ? 'border-violet bg-violet text-violet-ink shadow-soft-lg'
+                  : 'border-line bg-bg-surface text-cream hover:-translate-y-[2px] hover:border-violet/60',
               )}
             >
               <span
                 className={cn(
-                  'flex h-10 w-10 shrink-0 items-center justify-center rounded-md  font-mono text-xs font-bold',
-                  active ? 'bg-bg-base text-yellow' : 'bg-yellow text-yellow-ink',
+                  'flex h-10 w-10 shrink-0 items-center justify-center rounded-md font-mono text-xs font-bold',
+                  active ? 'bg-bg-base text-violet' : 'bg-violet text-violet-ink',
                 )}
               >
                 {p.shortLabel.slice(0, 2).toUpperCase()}

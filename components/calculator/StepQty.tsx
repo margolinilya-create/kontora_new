@@ -37,10 +37,10 @@ export function StepQty({ product, value, onChange }: Props) {
               aria-pressed={active}
               onClick={() => onChange(p)}
               className={cn(
-                'min-w-[88px] rounded-md  px-4 py-2 font-mono text-sm font-bold tracking-widest transition-[transform,box-shadow] duration-fast ease-out',
+                'inline-flex h-10 min-w-[88px] items-center justify-center rounded-full border-2 px-4 font-mono text-xs font-bold uppercase tracking-widest transition-[transform,background,border-color] duration-fast ease-out',
                 active
-                  ? 'bg-violet text-white shadow-soft-lg'
-                  : 'bg-bg-surface text-cream  hover:-translate-y-[2px] hover:shadow-soft-lg',
+                  ? 'border-violet bg-violet text-violet-ink shadow-soft-lg'
+                  : 'border-line bg-bg-surface text-cream hover:-translate-y-[1px] hover:border-violet/60',
               )}
             >
               {p} шт
@@ -65,7 +65,7 @@ export function StepQty({ product, value, onChange }: Props) {
             step={50}
             value={Math.min(10000, Math.max(min, value))}
             onChange={(e) => onChange(Number(e.target.value))}
-            className="h-2 flex-1 cursor-pointer appearance-none rounded-full bg-bg-surface-2 accent-yellow"
+            className="h-2 flex-1 cursor-pointer appearance-none rounded-full bg-bg-surface-2 accent-violet"
           />
           <input
             type="number"
@@ -74,7 +74,7 @@ export function StepQty({ product, value, onChange }: Props) {
             value={value}
             onChange={(e) => onChange(Number(e.target.value))}
             aria-label="Количество штук"
-            className="h-12 w-32 rounded-md border-2 border-line bg-bg-surface px-4 font-mono text-lg font-bold text-cream focus:border-yellow focus:outline-none"
+            className="h-12 w-32 rounded-full border-2 border-line bg-bg-surface px-5 font-mono text-lg font-bold text-cream focus:border-violet focus:outline-none"
           />
         </div>
       </div>

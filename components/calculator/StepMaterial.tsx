@@ -46,15 +46,17 @@ export function StepMaterial({ value, onChange }: Props) {
               aria-pressed={active}
               onClick={() => onChange(s.key)}
               className={cn(
-                'relative flex w-36 flex-col gap-2 rounded-lg  p-3 text-left transition-[transform,box-shadow] duration-fast ease-out focus-visible:-translate-y-[2px]',
-                active ? 'shadow-soft-lg' : ' hover:-translate-y-[2px] hover:shadow-soft-lg',
+                'relative flex w-36 flex-col gap-2 rounded-2xl border-2 p-3 text-left transition-[transform,box-shadow,border-color] duration-fast ease-out focus-visible:-translate-y-[2px]',
+                active
+                  ? 'border-violet shadow-soft-lg'
+                  : 'border-transparent hover:-translate-y-[2px] hover:shadow-soft-lg',
               )}
               style={{ background: s.background, color: s.fg }}
             >
               <span className="flex h-16 w-full rounded-md border border-ink/20" />
               <span className="font-display text-xs font-bold uppercase tracking-wide">{s.label}</span>
               {active ? (
-                <span className="absolute right-2 top-2 flex h-5 w-5 items-center justify-center rounded-full bg-bg-base text-[10px] font-bold text-yellow">
+                <span className="absolute right-2 top-2 flex h-5 w-5 items-center justify-center rounded-full bg-violet text-[10px] font-bold text-white">
                   ✓
                 </span>
               ) : null}
