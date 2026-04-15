@@ -18,7 +18,7 @@ export function ProductHero({ content }: { content: ProductContent }) {
         <h1
           className="font-display text-[clamp(2.75rem,7vw+0.5rem,6.5rem)] font-bold uppercase leading-[0.92] tracking-tighter"
           style={{
-            WebkitTextStroke: '2px var(--color-violet)',
+            WebkitTextStroke: '3px var(--accent-violet)',
             color: 'transparent',
           }}
         >

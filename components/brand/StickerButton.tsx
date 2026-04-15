@@ -69,7 +69,16 @@ export const StickerButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, S
     const classes = cn(stickerButtonVariants({ tone, size }), className)
 
     if ('href' in props && props.href !== undefined) {
-      const { href, ...rest } = props as AsLink
+      // ВАЖНО: исключаем tone/size/className/children из rest,
+      // иначе spread перетирает computed classes и ломает стили.
+      const {
+        href,
+        tone: _tone,
+        size: _size,
+        className: _className,
+        children: _children,
+        ...rest
+      } = props as AsLink
       return (
         <Link
           href={href}
@@ -82,11 +91,18 @@ export const StickerButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, S
       )
     }
 
+    const {
+      tone: _tone,
+      size: _size,
+      className: _className,
+      children: _children,
+      ...buttonProps
+    } = props as AsButton
     return (
       <button
         ref={ref as React.Ref<HTMLButtonElement>}
         className={classes}
-        {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+        {...(buttonProps as React.ButtonHTMLAttributes<HTMLButtonElement>)}
       >
         {children}
       </button>

@@ -52,11 +52,11 @@ export function Header() {
                       ? pathname === '/'
                       : base !== '/' && pathname.startsWith(base)
                   return (
-                    <li key={item.href} className="relative">
+                    <li key={item.href} className="relative shrink-0">
                       <Link
                         href={item.href}
                         className={cn(
-                          'relative inline-flex items-center rounded-full px-4 py-2 font-body text-sm font-semibold uppercase tracking-wide transition-colors duration-fast',
+                          'relative inline-flex items-center whitespace-nowrap rounded-full px-3 py-2 font-body text-xs font-semibold uppercase tracking-wide transition-colors duration-fast xl:px-4 xl:text-sm',
                           isActive
                             ? 'text-violet-ink'
                             : 'text-cream-soft hover:text-cream',
